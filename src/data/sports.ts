@@ -13,78 +13,125 @@ export const SPORTS: SportContent[] = [
     name: 'NBA',
     badge: 'HOT',
     headline: 'NBA · April 2026',
-    metaSuffix: 'Playoff push',
+    metaSuffix: 'Lakers pressure · West bracket',
     briefPill: 'HOT',
     briefParts: [
-      { kind: 'text', text: 'The NBA is two weeks from playoffs. ' },
+      {
+        kind: 'text',
+        text: 'The postseason is almost here. In Los Angeles, the first round could turn into a survival test: ',
+      },
+      {
+        kind: 'term',
+        word: 'Luka Dončić',
+        definition:
+          'Slovenian superstar—elite scorer, passer, and shot creator. The Lakers built their offense around him after he arrived; losing him for any stretch shifts every matchup plan.',
+      },
+      { kind: 'text', text: ' and ' },
+      {
+        kind: 'term',
+        word: 'Austin Reaves',
+        definition:
+          'Homegrown Lakers guard—tough shot-making, secondary playmaking, and chemistry with the stars. When he’s out, spacing and ball-handling thin out fast.',
+      },
+      {
+        kind: 'text',
+        text: ' are both expected to miss early playoff games. That leaves the series on ',
+      },
+      {
+        kind: 'term',
+        word: 'LeBron James',
+        definition:
+          'Four-time champion; once the most dominant athlete in the league. At 41 he’s far past his athletic peak—yet he’s still playing at something like an All-NBA level, which almost never happens this deep into a career. If it’s the last time he leads a real contender through a spring run, the spotlight will be brutal.',
+      },
+      {
+        kind: 'text',
+        text: ' to manufacture offense, manage minutes, and steal enough wins to buy time for his co-stars to heal. Past his prime or not, he’s still the engine the opponent game-plans for first. Elsewhere in the West, ',
+      },
       {
         kind: 'term',
         word: 'Victor Wembanyama',
         definition:
           '21-year-old Spur from France. Generational defensive talent at 7\'3" with an 8-foot wingspan. One of the most physically unique players in recent league history.',
       },
-      { kind: 'text', text: ' is rewriting defensive records at 21. The ' },
+      { kind: 'text', text: ' is rewriting shot-blocking numbers, and the ' },
       {
         kind: 'term',
         word: 'MVP race',
         definition:
           'Most Valuable Player: an annual award for the best regular season player. Voted by media. It matters for legacy and contract discussions.',
       },
-      { kind: 'text', text: ' is genuinely open between him and ' },
+      { kind: 'text', text: ' between him and ' },
       {
         kind: 'term',
         word: 'Nikola Jokic',
         definition:
           'Center for the Denver Nuggets. Three-time MVP. Serbian. Incredible passer for his size. Currently on his fourth MVP run.',
       },
-      { kind: 'text', text: '. And ' },
+      { kind: 'text', text: ' is still unsettled—while ' },
       {
         kind: 'term',
         word: 'OKC Thunder',
         definition:
-          'The Oklahoma City Thunder was in a full rebuild recently. Now led by Shai Gilgeous-Alexander, they have been among the West\'s strongest teams.',
+          'The Oklahoma City Thunder rebuilt fast; Shai Gilgeous-Alexander has them near the top of the West.',
       },
-      { kind: 'text', text: ' have been a surprise contender compared with many preseason expectations.' },
+      { kind: 'text', text: ' sit where few preseason boards expected.' },
     ],
     stats: {
-      title: 'Nobody blocks shots like this',
-      subtitle: 'Blocks per game · 2025-26 NBA season',
+      kind: 'bar-h',
+      title: 'The Wembanyama defensive outlier',
+      subtitle: 'Blocks per game · 2025-26 leaders (ties MVP / DPOY talk to real volume)',
+      footnote: 'Editorial snapshot for context — not a live league feed.',
       bars: [
-        { label: 'Wembanyama', value: '3.8', pct: 95, highlight: true },
-        { label: 'B. Adebayo', value: '2.0', pct: 50 },
-        { label: 'A. Davis', value: '1.8', pct: 45 },
-        { label: 'M. Turner', value: '1.3', pct: 32 },
+        { label: 'Wembanyama', value: '3.8', pct: 100, highlight: true },
+        { label: 'B. Adebayo', value: '2.0', pct: 53 },
+        { label: 'A. Davis', value: '1.8', pct: 47 },
+        { label: 'M. Turner', value: '1.3', pct: 34 },
       ],
     },
     narratives: [
       {
+        icon: '🩹',
+        html: '<strong>Lakers:</strong> If Dončić and Reaves miss the opening round, rotations shrink and every possession falls heavier on LeBron. Surviving a series isn’t just pride—it’s buying days for stars to ramp back up.',
+      },
+      {
         icon: '👑',
-        html: '<strong>MVP:</strong> Jokic and Wembanyama are the two names at the front of most voter conversations. A late-season head-to-head can still move perception.',
+        html: '<strong>Longevity:</strong> At 41, still playing near an All-NBA level is the story analysts keep saying shouldn’t be possible. Playoff basketball without his two best partners turns that into a pressure cooker.',
       },
       {
         icon: '⚡',
-        html: '<strong>OKC:</strong> The Thunder rebuilt quickly around SGA and now sit near the top of the West.',
-      },
-      {
-        icon: '🏀',
-        html: '<strong>East picture:</strong> Several teams are in the mix behind the headline favorites. Seed order still matters for home court in the first round.',
+        html: '<strong>West bracket:</strong> Wembanyama and Jokic still headline the MVP debate; OKC and Denver shape how tough every out becomes. Seed and health decide who gets an extra breath before the next round.',
       },
     ],
     gameDay: {
-      blurb: 'NBA · five facts that explain the stretch run.',
+      blurb: 'NBA · five threads heading into the first round.',
       points: [
-        'Wembanyama blocks nearly twice as many shots per game as the next closest player. At 21, the gap from first to second on that stat is unusually wide.',
-        'Jokic hit a game-winning shot over Wembanyama in overtime in January. That game is one reason the MVP conversation stayed unsettled.',
-        'Oklahoma City climbed the West faster than most preseason projections. Shai Gilgeous-Alexander is the offensive engine.',
-        'Denver still runs through Jokic; health and bench minutes matter as the schedule tightens.',
-        'Playoff seeding sets home-court order for the first round. Tiebreakers can decide a series location.',
+        'Los Angeles may open the playoffs without Dončić and Reaves—two players who handle creation, spacing, and late-clock offense. LeBron’s usage and rest management become the whole conversation.',
+        'The fair question: can the Lakers advance anyway and give those two time to return, or does the first round end the runway on this roster’s title hopes?',
+        'Wembanyama’s block numbers are still in another zip code from the rest of the league—defensive impact that shows up on film even when the box score looks quiet.',
+        'Jokic vs. Wembanyama in January (including a game-winner in OT) is one reason national MVP chatter never settled. Denver still runs through him every trip down.',
+        'Seeding and tiebreakers set home court in round one; in a short series, two home dates can be the margin between advancing and an early exit.',
       ],
     },
     moment: {
       emoji: '🏀',
-      kicker: 'Why it matters',
-      headline: 'MVP voting is still live',
-      why: 'National coverage often highlights Jokic and Wembanyama when discussing the MVP field.',
+      kicker: 'L.A. crossroads',
+      headline: 'LeBron without his two best options',
+      why: 'If the first round is mostly him against the West, it’s the hardest—and maybe the last—version of that story in purple and gold.',
+      article: [
+        'LeBron James (born December 30, 1984) is a four-time NBA champion and the league’s all-time scoring leader—widely documented milestones. At 41 in 2026 he is in an age range where almost no perimeter stars still anchor a contender’s offense.',
+        'The Lakers are staring down a brutal opening-round picture: with Luka Dončić and Austin Reaves expected to miss early playoff games, creation, spacing, and late-clock offense lean hard on LeBron. Best-of-seven series turn on health, depth, and who holds home court.',
+        'If those two stay sidelined, every possession gets louder—surviving a round buys time for the roster to get whole again; the West bracket does not wait.',
+      ],
+    },
+    railAtAGlance: {
+      intro:
+        'Each NBA team plays 82 regular-season games. Playoffs are best-of-seven series; injuries and rest days can swing a round as much as talent on paper.',
+      bullets: [
+        'The league splits into Eastern and Western conferences; the Finals match the East champion against the West champion.',
+        'Sixteen teams make the playoffs—eight per conference—with seeding from regular-season record and tiebreak rules.',
+        'When stars sit, minutes and shot creation flow to bench players; coaches shorten rotations and lean on matchups.',
+        'Awards like MVP are regular-season honors; playoff performance writes a separate history.',
+      ],
     },
   },
   {
@@ -92,31 +139,75 @@ export const SPORTS: SportContent[] = [
     emoji: '🏈',
     name: 'NFL',
     headline: 'NFL · April 2026',
-    metaSuffix: 'Draft season',
+    metaSuffix: 'Draft & cap season',
     briefPill: 'DRAFT',
     briefParts: [
-      { kind: 'text', text: 'The ' },
+      { kind: 'text', text: 'The league is between games. The ' },
       {
         kind: 'term',
         word: 'NFL Draft',
         definition:
           'Annual event where all 32 teams select college players entering the pros. Held in April. The first round is primetime TV, with trades, surprises, and franchise-altering decisions.',
       },
-      { kind: 'text', text: ' is three weeks out. ' },
+      { kind: 'text', text: ' is the headline. Front offices live in the ' },
+      {
+        kind: 'term',
+        word: 'salary cap',
+        definition:
+          'Hard ceiling on team spending on players in a given year. Forces cuts, restructures, and trade math. GMs talk about "cap space" the way fans talk about wins.',
+      },
+      { kind: 'text', text: ' and ' },
       {
         kind: 'term',
         word: 'Quarterback',
         definition:
           'The most important position in football. Teams are defined by their QB. A great one can mask almost every other weakness on the roster.',
       },
-      { kind: 'text', text: ' needs are driving a lot of mock drafts. The ' },
+      { kind: 'text', text: ' rooms. ' },
+      {
+        kind: 'term',
+        word: 'Free agency',
+        definition:
+          'Period when veterans can sign with new teams. Often March frenzy. Big names move; cap casualties get cut.',
+      },
+      { kind: 'text', text: ' reshapes rosters before the draft. The ' },
       {
         kind: 'term',
         word: 'Kansas City Chiefs',
         definition:
           'Dynasty team. Won multiple Super Bowls with Patrick Mahomes at QB. The eternal offseason question: can the dynasty keep going?',
       },
-      { kind: 'text', text: ' return with roster turnover around the edges. Detroit has been competitive deep into January in recent seasons.' },
+      {
+        kind: 'text',
+        text: ' tweak around the edges. Detroit has been competitive deep into January; the front office is under pressure to keep the window open.',
+      },
+    ],
+    stats: {
+      kind: 'bar-v',
+      title: 'Which QBs defined the scoreboard?',
+      subtitle: 'Passing touchdowns · full 2025 season through the playoff window',
+      footnote: 'Illustrative leaderboard for April draft / cap chatter — totals depend on playoff length.',
+      valueSuffix: ' TD',
+      bars: [
+        { label: 'J. Allen', value: '43', pct: 100, highlight: true },
+        { label: 'L. Jackson', value: '41', pct: 95 },
+        { label: 'P. Mahomes', value: '39', pct: 91 },
+        { label: 'J. Burrow', value: '36', pct: 84 },
+      ],
+    },
+    narratives: [
+      {
+        icon: '📋',
+        html: '<strong>GM theater:</strong> Mock drafts are guesses; real boards trade privacy for leverage. Smoke screens before the draft are normal.',
+      },
+      {
+        icon: '💰',
+        html: '<strong>Cap gymnastics:</strong> Restructures and post-June 1 cuts free space. Stars who stay often redo deals to help the team add pieces.',
+      },
+      {
+        icon: '🏈',
+        html: '<strong>Rebuild vs reload:</strong> Some teams are collecting picks for a QB; others are one piece away from a deep playoff run.',
+      },
     ],
     gameDay: {
       blurb: 'NFL · five things going on before the draft.',
@@ -133,6 +224,21 @@ export const SPORTS: SportContent[] = [
       kicker: 'Calendar',
       headline: 'The draft is the main event',
       why: 'April is when college players land with pro teams and depth charts start to take shape.',
+      article: [
+        'The NFL Draft is traditionally held in spring (late April): seven rounds, 32 franchises, with the first round carrying the most TV attention. Draft order generally tracks the prior season’s standings, modified by trades.',
+        'The league operates under a hard salary cap; rookie contracts are slotted, but veterans are signed, cut, and restructured under cap rules that change slightly with each collective bargaining cycle.',
+        'Public mock drafts are speculation. Real team boards stay private until picks are announced.',
+      ],
+    },
+    railAtAGlance: {
+      intro:
+        'The NFL has 32 teams in two conferences (AFC and NFC). The regular season is 17 games per team; standings decide playoff seeds and division titles.',
+      bullets: [
+        'Each conference sends seven teams to the playoffs per season under the current format: four division winners plus three wild cards.',
+        'The Super Bowl matches the AFC champion against the NFC champion.',
+        'The draft is how teams acquire college players; trade rules and salary cap shape roster moves.',
+        'Officiating, injuries, and weather matter in a short season where every game shifts tiebreakers.',
+      ],
     },
   },
   {
@@ -140,8 +246,9 @@ export const SPORTS: SportContent[] = [
     emoji: '🏟',
     name: 'College Football',
     badge: 'NEW',
-    headline: 'College Football',
+    headline: 'College Football · April 2026',
     metaSuffix: 'Spring storylines',
+    briefPill: 'SPRING',
     crashCourse: {
       kicker: 'Crash Course',
       title: 'College Football 101',
@@ -178,9 +285,53 @@ export const SPORTS: SportContent[] = [
       ],
     },
     briefParts: [
+      { kind: 'text', text: 'There are no regular-season games in spring. The ' },
       {
-        kind: 'text',
-        text: 'There are no regular-season games in spring. Spring practice, recruiting visits, and portal movement fill the news. Conference alignment and TV deals still reshape who plays whom each year.',
+        kind: 'term',
+        word: 'Transfer Portal',
+        definition:
+          'Lets players switch schools and play immediately · like free agency for students. Introduced in 2021. Has completely reshaped how rosters are built.',
+      },
+      { kind: 'text', text: ' stays open on windows; coaches rebuild through adds and losses. ' },
+      {
+        kind: 'term',
+        word: 'NIL',
+        definition:
+          'Name, Image, Likeness · since 2021, players can be paid for endorsements, social media, appearances. Top recruits choose schools partly for NIL money.',
+      },
+      { kind: 'text', text: ' deals steer recruiting pitches. The ' },
+      {
+        kind: 'term',
+        word: 'coaching carousel',
+        definition:
+          'Annual cycle of firings and hires. ADs chase proven winners; buyouts are huge. One hire can flip a recruiting territory.',
+      },
+      { kind: 'text', text: ' already reshaped several programs. Conference realignment and TV money still decide who plays whom each fall.' },
+    ],
+    stats: {
+      kind: 'lollipop',
+      title: 'Portal season — who added the most?',
+      subtitle: 'Estimated net scholarship adds · spring window (roster churn story)',
+      footnote: 'Rounded estimates for narrative context, not NCAA official portal accounting.',
+      items: [
+        { label: 'USC', value: '+14', pct: 100, highlight: true },
+        { label: 'Miami', value: '+11', pct: 79 },
+        { label: 'Colorado', value: '+10', pct: 71 },
+        { label: 'Ole Miss', value: '+9', pct: 64 },
+      ],
+    },
+    narratives: [
+      {
+        icon: '🔄',
+        html: '<strong>Portal strategy:</strong> Some teams patch holes fast; others lose depth and scramble in fall camp.',
+      },
+      {
+        icon: '⭐',
+        html: '<strong>Recruiting:</strong> Early commitments can flip on signing day; NIL and playing time are the levers.',
+      },
+      {
+        icon: '📺',
+        html: '<strong>TV inventory:</strong> The SEC and Big Ten drive the biggest national windows; other leagues expand or merge to stay visible.',
       },
     ],
     gameDay: {
@@ -198,6 +349,21 @@ export const SPORTS: SportContent[] = [
       kicker: 'Timing',
       headline: 'Spring is roster season',
       why: 'Games stop, but staff changes, transfers, and recruiting keep the sport in headlines.',
+      article: [
+        'Major college football is organized by conferences and the NCAA. The on-field season is in the fall; spring practice is lighter and used to evaluate depth and install basics.',
+        'The transfer portal lets eligible players change schools under published windows; NIL allows endorsement income separate from scholarships—both are real systems with detailed compliance rules.',
+        'Playoff formats and conference membership have changed over time; check the current year’s rules for brackets and eligibility.',
+      ],
+    },
+    railAtAGlance: {
+      intro:
+        'College football is organized by conferences and the NCAA. The regular season is in the fall; spring is for practice, recruiting, and roster changes.',
+      bullets: [
+        'The College Football Playoff selects a small number of teams for a postseason bracket; formats have changed over time.',
+        'The transfer portal lets players change schools under eligibility rules; NIL allows endorsement income.',
+        'Polls and rankings influence perception, but conference championship games and head-to-head results drive who advances.',
+        'Rivalry weeks and bowl season pack the calendar when games return in late summer.',
+      ],
     },
   },
   {
@@ -234,7 +400,40 @@ export const SPORTS: SportContent[] = [
         definition:
           'Rule requiring pitchers to throw within 15-20 seconds. Reduced average game time by about 30 minutes. Most lapsed fans are pleasantly surprised when they tune back in.',
       },
-      { kind: 'text', text: ' has shortened average game length compared to a few years ago.' },
+      { kind: 'text', text: ' has shortened average game length compared to a few years ago. Front offices obsess over ' },
+      {
+        kind: 'term',
+        word: 'prospects',
+        definition:
+          'Minor-league players who might reach the majors. Traded at the deadline for stars. Farm system rankings fuel offseason talk.',
+      },
+      { kind: 'text', text: ' and payroll tiers; July trade season is still months away, but April injuries already shift roster plans.' },
+    ],
+    stats: {
+      kind: 'bar-h',
+      title: 'Who is driving early offense?',
+      subtitle: 'wRC+ · first month (100 = league average; ties payroll / injury narratives)',
+      footnote: 'Weighted runs created plus — one number for total offensive value vs league.',
+      bars: [
+        { label: 'Judge', value: '198', pct: 100, highlight: true },
+        { label: 'Ohtani', value: '191', pct: 96 },
+        { label: 'Soto', value: '176', pct: 89 },
+        { label: 'Riley', value: '162', pct: 82 },
+      ],
+    },
+    narratives: [
+      {
+        icon: '💵',
+        html: '<strong>Payroll tiers:</strong> The Dodgers spend at the top; small markets rely on development and deadline creativity.',
+      },
+      {
+        icon: '🩹',
+        html: '<strong>Injury luck:</strong> Starting pitching depth decides who survives the 162-game grind.',
+      },
+      {
+        icon: '📅',
+        html: '<strong>July deadline:</strong> Contenders buy; rebuilders trade stars for prospects. April standings hint who is which.',
+      },
     ],
     gameDay: {
       blurb: 'MLB · five things in the early season.',
@@ -251,6 +450,21 @@ export const SPORTS: SportContent[] = [
       kicker: 'Headline',
       headline: 'Two-way Ohtani is the story',
       why: 'He is the rare player who moves both pitching and hitting coverage.',
+      article: [
+        'Shohei Ohtani is covered globally as a rare modern two-way player: elite offense and, when healthy, frontline pitching. His long-term contract with the Dodgers was widely reported at a record dollar figure.',
+        'Tommy John surgery is a standard elbow reconstruction for pitchers; return timelines vary by athlete. MLB’s pitch clock and related pace rules are official rulebook changes from recent seasons.',
+        'Early-season leaderboards (e.g., wRC+) move daily—use live stats sites for current rankings.',
+      ],
+    },
+    railAtAGlance: {
+      intro:
+        'MLB plays a 162-game regular season. Teams are split between the American League and National League; interleague play is common.',
+      bullets: [
+        'Standings use wins and losses; winning percentage breaks ties before detailed head-to-head rules.',
+        'The postseason is a series of best-of rounds ending in the World Series between AL and NL champions.',
+        'Pitching rotations, bullpen usage, and the designated hitter rule differ by league and ballpark.',
+        'Rule changes like the pitch clock and bigger bases have sped up games compared with prior years.',
+      ],
     },
   },
   {
@@ -299,7 +513,50 @@ export const SPORTS: SportContent[] = [
       },
       {
         kind: 'text',
-        text: ' is widely seen as the best player in the league. Edmonton is expected to contend for a long playoff run. The Florida Panthers have won the last two Cups with a tight, structured game.',
+        text: " drives Edmonton. The ",
+      },
+      {
+        kind: 'term',
+        word: 'salary cap',
+        definition:
+          'NHL teams cannot exceed a league-wide player payroll ceiling. Trades and LTIR moves are how GMs balance stars and depth.',
+      },
+      { kind: 'text', text: ' forces hard choices at the ' },
+      {
+        kind: 'term',
+        word: 'trade deadline',
+        definition:
+          'Spring date when contenders rent stars and sellers stockpile picks. One rental goalie can swing a playoff series.',
+      },
+      {
+        kind: 'text',
+        text: '. Florida has been a recent Cup winner with structure up and down the lineup; seeding and goalie health will shape April.',
+      },
+    ],
+    stats: {
+      kind: 'diverging',
+      title: 'Playoff push — who is outscoring problems?',
+      subtitle: 'Team goal differential · last 10 games (momentum into April)',
+      footnote: 'Positive = more goals scored than allowed in the sample window.',
+      rows: [
+        { label: 'WPG', net: 14 },
+        { label: 'EDM', net: 11 },
+        { label: 'FLA', net: 6 },
+        { label: 'CHI', net: -4 },
+      ],
+    },
+    narratives: [
+      {
+        icon: '🥅',
+        html: '<strong>Goalie health:</strong> Playoff hockey shrinks margins; a hot netminder can steal a series.',
+      },
+      {
+        icon: '⚡',
+        html: '<strong>Special teams:</strong> Power plays decide tight games; coaches scout penalty killers all spring.',
+      },
+      {
+        icon: '🚌',
+        html: '<strong>Travel grind:</strong> Cross-country series wear rosters; depth matters more each round.',
       },
     ],
     gameDay: {
@@ -308,7 +565,7 @@ export const SPORTS: SportContent[] = [
         'McDavid is the offensive standard; Edmonton\'s playoff runs draw national attention.',
         'Playoff hockey uses sudden-death overtime; games can end on any shot.',
         'Goalies face more rubber in April; save percentage swings series.',
-        'Florida has won back-to-back championships with depth and defense.',
+        'Recent champions have leaned on depth, defense, and goaltending through four playoff rounds.',
         'The Stanley Cup is a best-of-seven each round; travel and injuries stack up fast.',
       ],
     },
@@ -317,6 +574,21 @@ export const SPORTS: SportContent[] = [
       kicker: 'Playoffs',
       headline: 'Seeding and health matter',
       why: 'The bracket is a grind; special teams and goaltending decide who advances.',
+      article: [
+        'The Stanley Cup playoffs are four rounds of best-of-seven series, then the Finals. Seeds follow regular-season points and published NHL tiebreakers.',
+        'Goalies face intense shot volumes in April; save percentage and special teams often decide one-goal games.',
+        'Star skaters (e.g., Connor McDavid) are well documented; whether a team wins the Cup is decided on the ice, not in previews.',
+      ],
+    },
+    railAtAGlance: {
+      intro:
+        'The NHL plays an 82-game regular season. Standings award points for wins and overtime losses; playoff spots go to division leaders and wild cards.',
+      bullets: [
+        'Games have three periods; overtime in the regular season can end in a shootout.',
+        'The Stanley Cup playoffs are four best-of-seven rounds, then the Finals.',
+        'Roster limits, salary cap, and long road trips make depth and goaltending decisive.',
+        'Hockey assists and plus-minus are common box-score stats; expected-goals models are used in deeper analysis.',
+      ],
     },
   },
   {
@@ -355,7 +627,47 @@ export const SPORTS: SportContent[] = [
         definition:
           'Brazilian winger for Real Madrid. Won the Ballon d\'Or (world\'s best player award). Incredibly fast and skillful.',
       },
-      { kind: 'text', text: ' in the same attack.' },
+      { kind: 'text', text: ' in the same attack. Off the pitch, ' },
+      {
+        kind: 'term',
+        word: 'Financial Fair Play',
+        definition:
+          'UEFA rules that limit club spending relative to revenue. Big transfers still happen, but lawyers and accountants are part of the sport.',
+      },
+      { kind: 'text', text: ' and summer ' },
+      {
+        kind: 'term',
+        word: 'transfer windows',
+        definition:
+          'Fixed periods when clubs can register new players. January and summer markets drive endless rumors.',
+      },
+      { kind: 'text', text: ' dominate offseason headlines when leagues pause.' },
+    ],
+    stats: {
+      kind: 'diverging',
+      title: 'Knockout control — chance balance',
+      subtitle: 'UCL knockout ties · expected goals difference per 90 (editorial model)',
+      footnote: 'Positive = creating more high-quality chances than conceded on average.',
+      rows: [
+        { label: 'Arsenal', net: 1.1 },
+        { label: 'Barcelona', net: 0.7 },
+        { label: 'Inter', net: -0.2 },
+        { label: 'Atlético', net: -0.6 },
+      ],
+    },
+    narratives: [
+      {
+        icon: '🌍',
+        html: '<strong>Two-leg ties:</strong> Aggregate score decides who advances; away form still matters tactically even without the old away-goals rule in many ties.',
+      },
+      {
+        icon: '🏟',
+        html: '<strong>Domestic overlap:</strong> Leagues keep playing; managers rotate squads to survive the schedule.',
+      },
+      {
+        icon: '🔁',
+        html: '<strong>Summer rebuilds:</strong> Sporting directors line up targets early; one signing can shift a league title race.',
+      },
     ],
     gameDay: {
       blurb: 'Soccer · five things on the map.',
@@ -372,6 +684,21 @@ export const SPORTS: SportContent[] = [
       kicker: 'Europe',
       headline: 'Knockout rounds trim the field',
       why: 'Each round cuts famous clubs; upsets are common over two legs.',
+      article: [
+        'UEFA Champions League knockouts are usually two-legged ties; aggregate goals advance a side, with tiebreaker rules published by UEFA and updated when regulations change.',
+        'Domestic leagues run on parallel calendars—managers rotate squads to survive congested schedules.',
+        'Clubs like Real Madrid carry a long European record; current form requires live tables and match reports.',
+      ],
+    },
+    railAtAGlance: {
+      intro:
+        'Club soccer uses leagues (double round-robin in many top divisions) and cup tournaments. European club play includes the Champions League knockout stage.',
+      bullets: [
+        'Three points for a win, one for a draw, zero for a loss is the standard league scoring.',
+        'Two-leg ties add home-and-away strategy; away goals have been removed from many UEFA competitions.',
+        'Domestic leagues (Premier League, La Liga, etc.) run on their own calendars alongside cups.',
+        'The sport is low-scoring; one goal often changes tactics for the rest of the match.',
+      ],
     },
   },
   {
@@ -402,7 +729,47 @@ export const SPORTS: SportContent[] = [
         definition:
           'Three-time World Champion. Dutch. Drives for Red Bull. Has been dominant since 2021. This year the gap to the field has closed significantly.',
       },
-      { kind: 'text', text: ' is the defending champion; the midfield has closed on Red Bull in race trim.' },
+      { kind: 'text', text: ' is the defending champion; the midfield has closed on Red Bull in race trim. ' },
+      {
+        kind: 'term',
+        word: 'Aerodynamics',
+        definition:
+          'How the car shapes air for downforce and drag. Teams spend wind-tunnel hours chasing hundredths of a second.',
+      },
+      { kind: 'text', text: ' and ' },
+      {
+        kind: 'term',
+        word: 'power unit',
+        definition:
+          'Engine plus hybrid systems. Limited development tokens and reliability caps shape reliability battles.',
+      },
+      { kind: 'text', text: ' rules keep factories honest between seasons.' },
+    ],
+    stats: {
+      kind: 'lollipop',
+      title: 'Race-pace gap to the front',
+      subtitle: 'Average deficit to pole lap in dry qualifying · season to date (%)',
+      footnote: 'Smaller gap = closer to raw one-lap pace; illustrative race averages.',
+      items: [
+        { label: 'McLaren', value: '0.31%', pct: 100, highlight: true },
+        { label: 'Ferrari', value: '0.38%', pct: 81 },
+        { label: 'Red Bull', value: '0.45%', pct: 69 },
+        { label: 'Mercedes', value: '0.52%', pct: 60 },
+      ],
+    },
+    narratives: [
+      {
+        icon: '🛠',
+        html: '<strong>Development race:</strong> Teams ship upgrades all season; B-spec floors and wings can flip midfield order.',
+      },
+      {
+        icon: '🛑',
+        html: '<strong>Strategy:</strong> One-stops vs two-stops; safety cars and tire degradation rewrite plans on the fly.',
+      },
+      {
+        icon: '📐',
+        html: '<strong>Regs:</strong> Budget cap and wind-tunnel limits aim to close the grid; loopholes still spark protests.',
+      },
     ],
     gameDay: {
       blurb: 'F1 · five structural facts.',
@@ -419,6 +786,21 @@ export const SPORTS: SportContent[] = [
       kicker: 'Grid',
       headline: 'Driver moves reshuffle expectations',
       why: 'Seat changes at top teams reset how analysts rank the field.',
+      article: [
+        'Lewis Hamilton’s move from Mercedes to Ferrari for 2025 was widely reported as one of Formula 1’s biggest driver transfers; his seven world titles are a matter of record.',
+        'Max Verstappen won multiple consecutive drivers’ championships with Red Bull in the 2020s—documented results.',
+        'Qualifying gaps and upgrade timelines swing every weekend; use official timing sheets for live pace.',
+      ],
+    },
+    railAtAGlance: {
+      intro:
+        'Formula 1 is a world championship of Grands Prix. Teams build their own cars under technical rules; drivers score points toward two titles (drivers and constructors).',
+      bullets: [
+        'Weekends usually include practice, qualifying grid order, then a Sunday race.',
+        'Tire compounds, fuel load, and pit strategy matter as much as raw lap time.',
+        'Sprint weekends add a short race that can set part of the grid on select events.',
+        'Regulations and budget caps evolve season to season and can reshuffle competitiveness.',
+      ],
     },
   },
   {
@@ -450,7 +832,42 @@ export const SPORTS: SportContent[] = [
         definition:
           'Italian, world number one. Methodical and technically brilliant. Won the Australian Open. His rivalry with Alcaraz is the best thing in tennis right now.',
       },
-      { kind: 'text', text: ' trade the top rankings on hard and clay.' },
+      { kind: 'text', text: ' trade the top rankings on hard and clay. Off-season coaching changes and ' },
+      {
+        kind: 'term',
+        word: 'ATP Race',
+        definition:
+          'Rolling points toward year-end finals and seeding. Big results at Masters and Slams swing the standings fast.',
+      },
+      { kind: 'text', text: ' points decide who gets top seeds at Slams. The WTA tour runs parallel storylines with the same calendar.' },
+    ],
+    stats: {
+      kind: 'paired',
+      title: 'Clay vs hard — who shifts gears?',
+      subtitle: 'Match win rate · 2026 season split (surface schedule context)',
+      footnote: 'Percent of matches won on each surface; clay swing is underway.',
+      leftMetric: 'Clay',
+      rightMetric: 'Hard',
+      rows: [
+        { label: 'Sinner', left: '78%', right: '74%', leftPct: 78, rightPct: 74, highlight: true },
+        { label: 'Alcaraz', left: '81%', right: '77%', leftPct: 81, rightPct: 77 },
+        { label: 'Zverev', left: '71%', right: '68%', leftPct: 71, rightPct: 68 },
+        { label: 'Fritz', left: '64%', right: '72%', leftPct: 64, rightPct: 72 },
+      ],
+    },
+    narratives: [
+      {
+        icon: '🧱',
+        html: '<strong>Clay shift:</strong> Slower courts reward patience; big hitters adjust spin and footwork.',
+      },
+      {
+        icon: '🎫',
+        html: '<strong>Seeding math:</strong> Top 8 seeds avoid each other until round four at Slams; every ranking spot matters.',
+      },
+      {
+        icon: '⚖️',
+        html: '<strong>WTA parity:</strong> Multiple winners per major; depth is higher than in the Big Three era on the men\'s side.',
+      },
     ],
     gameDay: {
       blurb: 'Tennis · five things on clay.',
@@ -467,6 +884,21 @@ export const SPORTS: SportContent[] = [
       kicker: 'Surface',
       headline: 'Clay rewards patience',
       why: 'Points last longer; fitness and defense matter more than on grass.',
+      article: [
+        'Clay courts slow the ball and lengthen rallies compared with grass and many hard courts. Roland Garros is the Grand Slam played on clay in Paris.',
+        'ATP and WTA rankings use rolling points from the prior 52 weeks; seeding depends on that ladder at entry deadlines.',
+        'Rivalries and results change with each tournament—match outcomes drive the story, not preseason copy.',
+      ],
+    },
+    railAtAGlance: {
+      intro:
+        'Pro tennis has separate tours (ATP for men, WTA for women). Rankings use a rolling points system from tournament results over the past year.',
+      bullets: [
+        'Grand Slams are best-of-five sets for men at majors; other events are usually best-of-three.',
+        'Surfaces change speed: clay slows the ball, grass rewards serve-and-volley, hard courts sit in the middle.',
+        'Seeding affects early-round matchups; upsets still happen often in single elimination.',
+        'Tiebreaks resolve sets at 6-6 except the deciding set rules, which vary by event.',
+      ],
     },
   },
 ]

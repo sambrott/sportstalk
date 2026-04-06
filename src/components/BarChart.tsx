@@ -7,9 +7,11 @@ type Props = {
   bars: StatBar[]
   animate: boolean
   mobile?: boolean
+  /** When true, only the subtitle line is shown (title lives in CollapsibleCard header). */
+  omitHeader?: boolean
 }
 
-export function BarChart({ title, subtitle, bars, animate, mobile }: Props) {
+export function BarChart({ title, subtitle, bars, animate, mobile, omitHeader }: Props) {
   const [phase, setPhase] = useState(0)
 
   useEffect(() => {
@@ -28,7 +30,13 @@ export function BarChart({ title, subtitle, bars, animate, mobile }: Props) {
 
   return (
     <div className={p}>
-      {mobile ? (
+      {omitHeader ? (
+        mobile ? (
+          <div className="m-chart-sub">{subtitle}</div>
+        ) : (
+          <div className="chart-sub">{subtitle}</div>
+        )
+      ) : mobile ? (
         <>
           <div className="m-chart-title">{title}</div>
           <div className="m-chart-sub">{subtitle}</div>
@@ -39,7 +47,7 @@ export function BarChart({ title, subtitle, bars, animate, mobile }: Props) {
           <div className="chart-sub">{subtitle}</div>
         </>
       )}
-      {bars.map((b) => (
+      {bars.map((b, i) => (
         <div key={b.label} className={mobile ? 'm-bar-row' : 'bar-row'}>
           <div className={`${mobile ? 'm-bar-lbl' : 'bar-lbl'} ${b.highlight ? 'hi' : ''}`}>
             {b.label}
@@ -47,7 +55,10 @@ export function BarChart({ title, subtitle, bars, animate, mobile }: Props) {
           <div className={mobile ? 'm-bar-track' : 'bar-track'}>
             <div
               className={`${mobile ? 'm-bar-fill' : 'bar-fill'} ${b.highlight ? 'hi' : 'lo'}`}
-              style={{ width: phase ? `${b.pct}%` : '0%' }}
+              style={{
+                width: phase ? `${b.pct}%` : '0%',
+                transitionDelay: phase ? `${i * 75}ms` : '0ms',
+              }}
             >
               <span
                 className={`${mobile ? 'm-bar-val' : 'bar-val'} ${!b.highlight ? 'dark-val' : ''}`}

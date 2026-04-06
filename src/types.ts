@@ -26,11 +26,53 @@ export type StatBar = {
   highlight?: boolean
 }
 
-export type StatChart = {
-  title: string
-  subtitle: string
-  bars: StatBar[]
-}
+/** Chart data — may be editorial (`sport.stats`) or derived live from ESPN standings in the feed. */
+export type StatChart =
+  | {
+      kind: 'bar-h'
+      title: string
+      subtitle: string
+      footnote?: string
+      bars: StatBar[]
+    }
+  | {
+      kind: 'bar-v'
+      title: string
+      subtitle: string
+      footnote?: string
+      bars: StatBar[]
+      valueSuffix?: string
+    }
+  | {
+      kind: 'lollipop'
+      title: string
+      subtitle: string
+      footnote?: string
+      items: StatBar[]
+    }
+  | {
+      kind: 'diverging'
+      title: string
+      subtitle: string
+      footnote?: string
+      rows: { label: string; net: number }[]
+    }
+  | {
+      kind: 'paired'
+      title: string
+      subtitle: string
+      footnote?: string
+      leftMetric: string
+      rightMetric: string
+      rows: {
+        label: string
+        left: string
+        right: string
+        leftPct: number
+        rightPct: number
+        highlight?: boolean
+      }[]
+    }
 
 export type CrashCourse = {
   kicker: string
@@ -61,5 +103,14 @@ export type SportContent = {
     kicker: string
     headline: string
     why: string
+    /** Expandable short article (2–4 tight paragraphs). */
+    article: string[]
+    /** Optional fine print below the article. */
+    footnote?: string
+  }
+  /** Extra context shown only in the right rail for this sport. */
+  railAtAGlance?: {
+    intro: string
+    bullets: string[]
   }
 }

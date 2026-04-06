@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { ESPN_ORIGIN } from '../api/espnOrigin'
 import type { SportId } from '../types'
 
 export type LiveGame = {
@@ -80,8 +81,6 @@ const MOCK_NBA: LiveGame[] = [
     status: 'Demo (offline)',
   },
 ]
-
-const ESPN_ORIGIN = import.meta.env.DEV ? '/api/espn' : 'https://site.api.espn.com'
 
 export function useLiveScores(sportId: SportId): State {
   const [state, setState] = useState<State>({ kind: 'loading' })

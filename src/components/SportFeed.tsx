@@ -1,7 +1,9 @@
+import { deriveLiveStatChart } from '../api/espnStandings'
 import type { SportContent } from '../types'
+import { useEspnStandings } from '../hooks/useEspnStandings'
 import { BriefText } from './BriefText'
-import { BarChart } from './BarChart'
 import { CollapsibleCard } from './CollapsibleCard'
+import { StatChartView } from './StatChartView'
 
 type Props = {
   sport: SportContent
@@ -12,6 +14,10 @@ type Props = {
 
 export function SportFeed({ sport, mobile, onTermPress, showCrash }: Props) {
   const cc = sport.crashCourse
+  const liveStandings = useEspnStandings(sport.id)
+  const liveChart =
+    liveStandings.kind === 'ok' ? deriveLiveStatChart(sport.id, liveStandings.data) : null
+  const statsToShow = liveChart ?? sport.stats
 
   return (
     <div className="feed-inner">
@@ -37,7 +43,10 @@ export function SportFeed({ sport, mobile, onTermPress, showCrash }: Props) {
           title="The Brief"
           pill={sport.briefPill}
           pillVariant={
-            sport.briefPill === 'DRAFT' || sport.briefPill === 'UCL' || sport.briefPill === 'CLAY'
+            sport.briefPill === 'DRAFT' ||
+            sport.briefPill === 'UCL' ||
+            sport.briefPill === 'CLAY' ||
+            sport.briefPill === 'SPRING'
               ? 'info'
               : 'hot'
           }
@@ -48,27 +57,21 @@ export function SportFeed({ sport, mobile, onTermPress, showCrash }: Props) {
         </CollapsibleCard>
       ) : null}
 
-      {sport.stats ? (
+      {statsToShow ? (
         <CollapsibleCard
           key={`${sport.id}-stats`}
           kicker="By the numbers"
-          title={sport.stats.title}
-          pill="Stat"
-          pillVariant="info"
+          title={statsToShow.title}
+          pill={liveChart ? 'Live' : 'Stat'}
+          pillVariant={liveChart ? 'hot' : 'info'}
           defaultOpen
           mobile={mobile}
         >
-          {(open) =>
-            open ? (
-              <BarChart
-                title={sport.stats!.title}
-                subtitle={sport.stats!.subtitle}
-                bars={sport.stats!.bars}
-                animate={open}
-                mobile={mobile}
-              />
+          {(open) => {
+            return open ? (
+              <StatChartView chart={statsToShow} animate={open} mobile={mobile} omitHeader />
             ) : null
-          }
+          }}
         </CollapsibleCard>
       ) : null}
 

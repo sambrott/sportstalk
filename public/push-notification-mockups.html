@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sports Talk · Push notification mockups (novice fan)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0f0f0f;
+        --paper: #f5f2eb;
+        --accent: #e8401c;
+        --muted: #6b6560;
+        --notif-bg: rgba(28, 28, 30, 0.94);
+        --notif-border: rgba(255, 255, 255, 0.08);
+        --display: 'Bebas Neue', sans-serif;
+        --sans: 'DM Sans', sans-serif;
+        --mono: 'DM Mono', monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        background: linear-gradient(165deg, #1a1816 0%, #0f0f0f 45%, #12100e 100%);
+        color: var(--paper);
+        min-height: 100dvh;
+        padding: 32px 20px 48px;
+      }
+
+      .page-hd {
+        max-width: 1100px;
+        margin: 0 auto 36px;
+        text-align: center;
+      }
+
+      .page-hd h1 {
+        font-family: var(--display);
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        letter-spacing: 3px;
+        font-weight: 400;
+        margin: 0 0 8px;
+      }
+
+      .page-hd h1 em {
+        color: var(--accent);
+        font-style: normal;
+      }
+
+      .page-hd p {
+        color: rgba(245, 242, 235, 0.65);
+        font-size: 15px;
+        line-height: 1.55;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      .grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 28px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 20px 18px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .card-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: rgba(245, 242, 235, 0.45);
+      }
+
+      .card-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 1.35;
+        margin: -4px 0 0;
+      }
+
+      .phone {
+        background: #000;
+        border-radius: 22px;
+        padding: 12px 10px 14px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      }
+
+      .phone-notch {
+        width: 88px;
+        height: 24px;
+        background: #000;
+        border-radius: 0 0 14px 14px;
+        margin: -12px auto 8px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .notif {
+        background: var(--notif-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 14px;
+        padding: 12px 14px 12px 12px;
+        border: 1px solid var(--notif-border);
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .notif-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        background: linear-gradient(145deg, #e8401c 0%, #c43518 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+        box-shadow: 0 2px 8px rgba(232, 64, 28, 0.35);
+      }
+
+      .notif-body {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .notif-app {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 2px;
+      }
+
+      .notif-app-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        letter-spacing: -0.2px;
+      }
+
+      .notif-time {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.45);
+        flex-shrink: 0;
+      }
+
+      .notif-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 1.3;
+        margin-bottom: 3px;
+      }
+
+      .notif-text {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.42;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .tag {
+        font-family: var(--mono);
+        font-size: 9px;
+        padding: 3px 7px;
+        border-radius: 4px;
+        background: rgba(232, 64, 28, 0.2);
+        color: #ffb39e;
+        letter-spacing: 0.3px;
+      }
+
+      .tag.alt {
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(245, 242, 235, 0.75);
+      }
+
+      footer {
+        max-width: 1100px;
+        margin: 40px auto 0;
+        text-align: center;
+        font-size: 12px;
+        color: rgba(245, 242, 235, 0.35);
+        font-family: var(--mono);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-hd">
+      <h1>SPORTS<em>TALK</em> · Notifications</h1>
+      <p>
+        Mock push copy for a mobile app: nudge people who are not &ldquo;ball knowers&rdquo; to open a
+        <strong style="color: rgba(245, 242, 235, 0.9)">short brief</strong> before a watch party, a
+        work chat, or a group text they do not want to fake their way through.
+      </p>
+    </header>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-label">Tonight · big national moment</div>
+        <h2 class="card-title">NCAA title game: know the story in 3 minutes</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">🏀</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">now</span>
+              </div>
+              <div class="notif-title">Championship game tonight</div>
+              <p class="notif-text">
+                March Madness ends tonight. If you are hitting a watch party or your team talks hoops
+                tomorrow, tap for who is playing, one storyline, and a safe line if someone asks what
+                you think.
+              </p>
+              <div class="tag-row">
+                <span class="tag">March Madness</span>
+                <span class="tag alt">Work-safe</span>
+                <span class="tag alt">3 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Tomorrow morning · office small talk</div>
+        <h2 class="card-title">You did not watch: still sound informed</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">☕</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">7:10 AM</span>
+              </div>
+              <div class="notif-title">Everyone will mention last night</div>
+              <p class="notif-text">
+                Big game while you were asleep or at dinner? Two sentences on what happened, who stood
+                out, and what not to claim you saw in detail.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Monday prep</span>
+                <span class="tag alt">No spoilers guilt</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Social · vague anxiety</div>
+        <h2 class="card-title">Someone said &ldquo;did you see the trade?&rdquo;</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">💬</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">2m ago</span>
+              </div>
+              <div class="notif-title">Trending: catch up in plain English</div>
+              <p class="notif-text">
+                A deal is all over your feed. Here is which teams, what they gave up, and why people
+                care, without needing a cap table.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Explain like I am new</span>
+                <span class="tag alt">Group chat mode</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Plans tonight · FOMO helper</div>
+        <h2 class="card-title">Thursday Night Football before you meet friends</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">🏈</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">5:45 PM</span>
+              </div>
+              <div class="notif-title">Game on soon: who matters tonight</div>
+              <p class="notif-text">
+                Quick matchup card: records, one injury to know, and a fun fact if the bar TV is on
+                mute.
+              </p>
+              <div class="tag-row">
+                <span class="tag">NFL</span>
+                <span class="tag alt">Pre-game</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Playoffs · casual fan</div>
+        <h2 class="card-title">Game 7: stakes without the lecture</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">🎯</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">now</span>
+              </div>
+              <div class="notif-title">Winner goes on. Loser goes home.</div>
+              <p class="notif-text">
+                NBA Game 7 tonight. We will tell you what is actually on the line and one name to watch
+                so you can follow along without a semester of history.
+              </p>
+              <div class="tag-row">
+                <span class="tag">NBA</span>
+                <span class="tag alt">Playoffs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Work league · deadline pressure</div>
+        <h2 class="card-title">Fantasy waiver runs tonight</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">📋</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">8:00 PM</span>
+              </div>
+              <div class="notif-title">Your office league: one move people are debating</div>
+              <p class="notif-text">
+                Waivers clear soon. If you only want the minimum viable move so you are not last, here
+                is the upside and the risk in two bullets.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Fantasy</span>
+                <span class="tag alt">Low effort</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Bandwagon season · baseball</div>
+        <h2 class="card-title">World Series starts: you are invited to the group chat</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">⚾</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">now</span>
+              </div>
+              <div class="notif-title">Game 1 is tonight</div>
+              <p class="notif-text">
+                You have not watched baseball since July. Here is each team in one line, how they got
+                here, and what to say if someone asks for a prediction.
+              </p>
+              <div class="tag-row">
+                <span class="tag">MLB</span>
+                <span class="tag alt">Series primer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Big calendar event</div>
+        <h2 class="card-title">Super Bowl week: prep before the party</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">🎉</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">Thu 4:00 PM</span>
+              </div>
+              <div class="notif-title">Sunday is the game. Thursday is when people start asking</div>
+              <p class="notif-text">
+                Storylines, QB snapshot, and a halftime talking point that works at any Super Bowl
+                party, even if you care more about the ads.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Super Bowl</span>
+                <span class="tag alt">Party mode</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">National team · water cooler</div>
+        <h2 class="card-title">Team USA plays: instant context</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">🥇</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">now</span>
+              </div>
+              <div class="notif-title">Gold medal game airs soon</div>
+              <p class="notif-text">
+                Who they are playing, what is at stake, and one player your coworkers will name-drop.
+                Built for someone who only tunes in every four years.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Team USA</span>
+                <span class="tag alt">Olympics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Local angle · hometown pride</div>
+        <h2 class="card-title">Your city is in the playoffs</h2>
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="notif">
+            <div class="notif-icon" aria-hidden="true">📍</div>
+            <div class="notif-body">
+              <div class="notif-app">
+                <span class="notif-app-name">Sports Talk</span>
+                <span class="notif-time">now</span>
+              </div>
+              <div class="notif-title">Neighbors will bring it up at the coffee shop</div>
+              <p class="notif-text">
+                Playoff game tonight. Short brief on the opponent, what a win would mean next round,
+                and a humble take if you are new to following the team.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Local</span>
+                <span class="tag alt">Playoffs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <footer>Mockups only · copy for product and messaging exploration</footer>
+  </body>
+</html>

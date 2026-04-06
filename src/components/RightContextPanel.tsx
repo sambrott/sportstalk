@@ -1,20 +1,28 @@
 import { useEffect } from 'react'
-import type { SportContent } from '../types'
+import type { FanLevel, SportContent, SportId } from '../types'
+import { MomentCard } from './MomentCard'
 import { StandingsBlock } from './StandingsBlock'
 import { LiveScoresBlock } from './LiveScoresBlock'
 
 type Props = {
   open: boolean
   onClose: () => void
+  /** Selected sport from state — must match `sport.id` (single source of truth for rail data). */
+  sportId: SportId
   sport: SportContent
+  /** Novice-only primer copy in the rail ("Just In"). */
+  level: FanLevel
 }
 
 function RightPanelToolbarRow({ sport, onClose }: { sport: SportContent; onClose: () => void }) {
   return (
     <div className="right-panel__toolbar">
       <div className="right-panel__toolbar-text">
-        <div className="right-panel__toolbar-title">At a glance</div>
-        <div className="right-panel__toolbar-sub">{sport.name}</div>
+        <div className="right-panel__toolbar-title">
+          <span className="right-panel__toolbar-sport">{sport.name}</span>
+          <span className="right-panel__toolbar-sep">·</span>
+          <span className="right-panel__toolbar-glance">At a glance</span>
+        </div>
       </div>
       <button type="button" className="right-panel__close" onClick={onClose} aria-label="Close panel">
         ✕
@@ -23,32 +31,40 @@ function RightPanelToolbarRow({ sport, onClose }: { sport: SportContent; onClose
   )
 }
 
-function PanelScroll({ sport }: { sport: SportContent }) {
+function PanelScroll({
+  sportId,
+  sport,
+  level,
+}: {
+  sportId: SportId
+  sport: SportContent
+  level: FanLevel
+}) {
+  const primer = level === 'novice' ? sport.railAtAGlance : undefined
+
   return (
     <div className="right-panel__scroll">
-      <div className="rail-sport-banner" role="status">
-        Selected sport: <strong>{sport.name}</strong> (this rail updates when you change sport in the menu)
-      </div>
-      {sport.moment ? (
-        <div className="moment-card moment-card--in-panel">
-          <div className="moment-vis">{sport.moment.emoji}</div>
-          <div className="moment-body">
-            <div className="moment-kicker">{sport.moment.kicker}</div>
-            <div className="moment-hl">{sport.moment.headline}</div>
-            <div className="moment-why">{sport.moment.why}</div>
-          </div>
-        </div>
+      {primer ? (
+        <section className="rail-agl" aria-label={`${sport.name} context`}>
+          <p className="rail-agl__intro">{primer.intro}</p>
+          <ul className="rail-agl__list">
+            {primer.bullets.map((b, i) => (
+              <li key={i}>{b}</li>
+            ))}
+          </ul>
+        </section>
       ) : null}
+      {sport.moment ? <MomentCard moment={sport.moment} /> : null}
 
-      <StandingsBlock key={sport.id} sportId={sport.id} />
+      <StandingsBlock sportId={sportId} />
 
-      <LiveScoresBlock key={sport.id} sportId={sport.id} />
+      <LiveScoresBlock key={sportId} sportId={sportId} />
     </div>
   )
 }
 
 /** Mobile: fixed overlay + scrim. */
-export function RightContextMobile({ open, onClose, sport }: Props) {
+export function RightContextMobile({ open, onClose, sportId, sport, level }: Props) {
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => {
@@ -82,14 +98,16 @@ export function RightContextMobile({ open, onClose, sport }: Props) {
         aria-label="Tonight, standings, and scores"
       >
         <RightPanelToolbarRow sport={sport} onClose={onClose} />
-        <PanelScroll sport={sport} />
+        <div className="right-panel__body">
+          <PanelScroll sportId={sportId} sport={sport} level={level} />
+        </div>
       </div>
     </>
   )
 }
 
 /** Desktop: flex rail compresses the feed, no lightbox. */
-export function RightContextDesktopRail({ open, onClose, sport }: Props) {
+export function RightContextDesktopRail({ open, onClose, sportId, sport, level }: Props) {
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => {
@@ -107,7 +125,9 @@ export function RightContextDesktopRail({ open, onClose, sport }: Props) {
     >
       <div className="right-rail__inner">
         <RightPanelToolbarRow sport={sport} onClose={onClose} />
-        <PanelScroll sport={sport} />
+        <div className="right-panel__body">
+          <PanelScroll sportId={sportId} sport={sport} level={level} />
+        </div>
       </div>
     </div>
   )

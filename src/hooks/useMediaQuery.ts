@@ -1,17 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
+/**
+ * Stable viewport match (avoids tearing / double layout paths during hydration).
+ */
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia(query).matches : false,
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      const mq = window.matchMedia(query)
+      mq.addEventListener('change', onStoreChange)
+      return () => mq.removeEventListener('change', onStoreChange)
+    },
+    () => window.matchMedia(query).matches,
+    () => false,
   )
-
-  useEffect(() => {
-    const mq = window.matchMedia(query)
-    const onChange = () => setMatches(mq.matches)
-    onChange()
-    mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
-  }, [query])
-
-  return matches
 }

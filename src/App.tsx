@@ -43,10 +43,6 @@ export default function App() {
         <TermSheet word={term.word} definition={term.definition} onClose={() => setTerm(null)} />
       ) : null}
 
-      {!isDesktop ? (
-        <RightContextMobile open={rightPanelOpen} onClose={() => setRightPanelOpen(false)} sport={sport} />
-      ) : null}
-
       {isDesktop && !rightPanelOpen ? (
         <button
           type="button"
@@ -150,24 +146,27 @@ export default function App() {
           <div className="sl-label" style={{ padding: '16px 22px 0' }}>
             Sports
           </div>
-          <div className="sl-sports">
-            {SPORTS.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                className={`sport-row ${sportId === s.id ? 'on' : ''}`}
-                onClick={() => setSportId(s.id)}
-              >
-                <span className="ico">{s.emoji}</span>
-                <span className="name">{s.name}</span>
-                {s.badge ? <span className="badge">{s.badge}</span> : null}
+          <div className="sl-sports-wrap">
+            <div className="sl-sports">
+              {SPORTS.map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  className={`sport-row ${sportId === s.id ? 'on' : ''}`}
+                  onClick={() => setSportId(s.id)}
+                >
+                  <span className="ico">{s.emoji}</span>
+                  <span className="name">{s.name}</span>
+                  {s.badge ? <span className="badge">{s.badge}</span> : null}
+                </button>
+              ))}
+            </div>
+            <div className="sl-gd-wrap">
+              <button type="button" className="gd-btn-sl" onClick={() => setModalOpen(true)}>
+                Game Day Brief
               </button>
-            ))}
-          </div>
-          <div className="sl-foot">
-            <button type="button" className="gd-btn-sl" onClick={() => setModalOpen(true)}>
-              Game Day Brief
-            </button>
+            </div>
+            <div className="sl-sports-spacer" aria-hidden />
           </div>
         </aside>
 
@@ -190,9 +189,27 @@ export default function App() {
         </div>
 
         {isDesktop ? (
-          <RightContextDesktopRail open={rightPanelOpen} onClose={() => setRightPanelOpen(false)} sport={sport} />
+          <RightContextDesktopRail
+            key="at-a-glance-desktop"
+            open={rightPanelOpen}
+            onClose={() => setRightPanelOpen(false)}
+            sportId={sportId}
+            sport={sport}
+            level={level}
+          />
         ) : null}
       </div>
+
+      {!isDesktop ? (
+        <RightContextMobile
+          key="at-a-glance-mobile"
+          open={rightPanelOpen}
+          onClose={() => setRightPanelOpen(false)}
+          sportId={sportId}
+          sport={sport}
+          level={level}
+        />
+      ) : null}
     </div>
   )
 }
