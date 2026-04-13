@@ -18,7 +18,7 @@ export type StandingsTable = {
 const nbaWest: StandingsTable = {
   id: 'west',
   title: 'Western Conference',
-  subtitle: 'Sample records',
+  subtitle: '2025-26 sample · not live',
   rows: [
     { pos: 1, name: 'OKC Thunder', record: '62-18' },
     { pos: 2, name: 'Denver Nuggets', record: '57-23' },
@@ -41,7 +41,7 @@ const nbaWest: StandingsTable = {
 const nbaEast: StandingsTable = {
   id: 'east',
   title: 'Eastern Conference',
-  subtitle: 'Sample records',
+  subtitle: '2025-26 sample · not live',
   rows: [
     { pos: 1, name: 'Boston Celtics', record: '59-21' },
     { pos: 2, name: 'Cleveland Cavaliers', record: '55-25' },

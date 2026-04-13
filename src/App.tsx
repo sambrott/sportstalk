@@ -6,11 +6,13 @@ import { SportFeed } from './components/SportFeed'
 import { GameDayModal } from './components/GameDayModal'
 import { TermSheet } from './components/TermSheet'
 import { RightContextDesktopRail, RightContextMobile } from './components/RightContextPanel'
+import { MobileAssistantLanding } from './components/MobileAssistantLanding'
+import { DesktopAssistantFab } from './components/DesktopAssistantFab'
 import { useMediaQuery } from './hooks/useMediaQuery'
 
 const LEVELS: FanLevel[] = ['novice', 'casual', 'diehard']
 const LEVEL_LABEL: Record<FanLevel, string> = {
-  novice: 'Just In',
+  novice: 'Novice',
   casual: 'Casual',
   diehard: 'Diehard',
 }
@@ -23,6 +25,9 @@ export default function App() {
   const [modalOpen, setModalOpen] = useState(false)
   const [term, setTerm] = useState<{ word: string; definition: string } | null>(null)
   const [rightPanelOpen, setRightPanelOpen] = useState(false)
+  /** Mobile: assistant landing first; user taps Deeper dive to see the feed. */
+  const [mobileEnteredMain, setMobileEnteredMain] = useState(false)
+  const [assistantOpen, setAssistantOpen] = useState(false)
 
   const sport = useMemo(() => getSport(sportId), [sportId])
 
@@ -68,60 +73,73 @@ export default function App() {
         onGameDay={() => setModalOpen(true)}
       />
 
-      <div className="app__mobile-shell">
-        <header className="m-nav">
-          <div className="m-nav-top">
-            <button type="button" className="hbg" onClick={() => setDrawerOpen(true)} aria-label="Open menu">
-              <span className="hbg-line" />
-              <span className="hbg-line" />
-              <span className="hbg-line" />
-            </button>
-            <div className="m-brand">
-              SPORTS<em>TALK</em>
-            </div>
-            <button
-              type="button"
-              className="m-nav-peek"
-              onClick={() => setRightPanelOpen(true)}
-              aria-label="Open at a glance panel"
-            >
-              ◀
-            </button>
-          </div>
-          <div className="m-levels">
-            {LEVELS.map((lv) => (
-              <button
-                key={lv}
-                type="button"
-                className={`m-lv ${level === lv ? 'on' : ''}`}
-                onClick={() => setLevel(lv)}
-              >
-                {LEVEL_LABEL[lv]}
+      {!isDesktop && !mobileEnteredMain ? (
+        <MobileAssistantLanding
+          sportId={sportId}
+          sport={sport}
+          onGameDay={() => setModalOpen(true)}
+          onEnterMain={() => setMobileEnteredMain(true)}
+          onOpenMenu={() => setDrawerOpen(true)}
+          onOpenAtAGlance={() => setRightPanelOpen(true)}
+        />
+      ) : null}
+
+      {!isDesktop && mobileEnteredMain ? (
+        <div className="app__mobile-shell">
+          <header className="m-nav">
+            <div className="m-nav-top">
+              <button type="button" className="hbg" onClick={() => setDrawerOpen(true)} aria-label="Open menu">
+                <span className="hbg-line" />
+                <span className="hbg-line" />
+                <span className="hbg-line" />
               </button>
-            ))}
-          </div>
-          <div className="m-topmeta">{sport.headline}</div>
-          <div className="m-topmeta" style={{ paddingTop: 0 }}>
-            {metaLine}
-          </div>
-        </header>
+              <div className="m-brand">
+                SPORTS<em>TALK</em>
+              </div>
+              <button
+                type="button"
+                className="m-nav-peek"
+                onClick={() => setRightPanelOpen(true)}
+                aria-label="Open at a glance panel"
+              >
+                ◀
+              </button>
+            </div>
+            <div className="m-levels">
+              {LEVELS.map((lv) => (
+                <button
+                  key={lv}
+                  type="button"
+                  className={`m-lv ${level === lv ? 'on' : ''}`}
+                  onClick={() => setLevel(lv)}
+                >
+                  {LEVEL_LABEL[lv]}
+                </button>
+              ))}
+            </div>
+            <div className="m-topmeta">{sport.headline}</div>
+            <div className="m-topmeta" style={{ paddingTop: 0 }}>
+              {metaLine}
+            </div>
+          </header>
 
-        <main className="m-feed">
-          <SportFeed
-            key={sportId}
-            sport={sport}
-            mobile
-            onTermPress={onTermPress}
-            showCrash={showCrash}
-          />
-        </main>
+          <div className="m-gd-wrap m-gd-wrap--top">
+            <button type="button" className="m-gd-btn" onClick={() => setModalOpen(true)}>
+              Game Day Brief
+            </button>
+          </div>
 
-        <div className="m-gd-wrap">
-          <button type="button" className="m-gd-btn" onClick={() => setModalOpen(true)}>
-            Game Day Brief
-          </button>
+          <main className="m-feed">
+            <SportFeed
+              key={sportId}
+              sport={sport}
+              mobile
+              onTermPress={onTermPress}
+              showCrash={showCrash}
+            />
+          </main>
         </div>
-      </div>
+      ) : null}
 
       <div className="app__desktop-shell">
         <aside className="sl" aria-label="Sports and level">
@@ -161,16 +179,16 @@ export default function App() {
                 </button>
               ))}
             </div>
-            <div className="sl-gd-wrap">
-              <button type="button" className="gd-btn-sl" onClick={() => setModalOpen(true)}>
-                Game Day Brief
-              </button>
-            </div>
             <div className="sl-sports-spacer" aria-hidden />
           </div>
         </aside>
 
         <div className="center">
+          <div className="desktop-gd-strip">
+            <button type="button" className="gd-btn-sl gd-btn-sl--center" onClick={() => setModalOpen(true)}>
+              Game Day Brief
+            </button>
+          </div>
           <header className="topbar">
             <div>
               <div className="topbar-sport">{sport.headline}</div>
@@ -208,6 +226,15 @@ export default function App() {
           sportId={sportId}
           sport={sport}
           level={level}
+        />
+      ) : null}
+
+      {isDesktop ? (
+        <DesktopAssistantFab
+          sportId={sportId}
+          sport={sport}
+          open={assistantOpen}
+          onToggle={() => setAssistantOpen((o) => !o)}
         />
       ) : null}
     </div>

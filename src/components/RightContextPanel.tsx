@@ -10,7 +10,7 @@ type Props = {
   /** Selected sport from state — must match `sport.id` (single source of truth for rail data). */
   sportId: SportId
   sport: SportContent
-  /** Novice-only primer copy in the rail ("Just In"). */
+  /** Novice-only primer copy in the rail. */
   level: FanLevel
 }
 

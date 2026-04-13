@@ -1,7 +1,7 @@
 import type { FanLevel, SportContent, SportId } from '../types'
 
 export const LEVEL_LABEL: Record<FanLevel, string> = {
-  novice: 'Just In',
+  novice: 'Novice',
   casual: 'Casual',
   diehard: 'Diehard',
 }
@@ -212,7 +212,7 @@ export const SPORTS: SportContent[] = [
     gameDay: {
       blurb: 'NFL · five things going on before the draft.',
       points: [
-        'The first round is where trades and surprise picks draw the most attention.',
+        'Late April is draft month: the first round is prime time for trades, surprise picks, and instant reactions.',
         'Several teams near the top of the draft order need a long-term answer at quarterback.',
         'Kansas City has reshaped parts of the roster while keeping Mahomes at center.',
         'Detroit has moved from rebuild to contender in a short window; offseason moves will be watched closely.',
@@ -595,7 +595,7 @@ export const SPORTS: SportContent[] = [
     id: 'soccer',
     emoji: '⚽',
     name: 'Soccer',
-    headline: 'Soccer · Spring 2026',
+    headline: 'Soccer · April 2026',
     metaSuffix: 'Club season',
     briefPill: 'UCL',
     briefParts: [
@@ -787,8 +787,8 @@ export const SPORTS: SportContent[] = [
       headline: 'Driver moves reshuffle expectations',
       why: 'Seat changes at top teams reset how analysts rank the field.',
       article: [
-        'Lewis Hamilton’s move from Mercedes to Ferrari for 2025 was widely reported as one of Formula 1’s biggest driver transfers; his seven world titles are a matter of record.',
-        'Max Verstappen won multiple consecutive drivers’ championships with Red Bull in the 2020s—documented results.',
+        'Lewis Hamilton moved from Mercedes to Ferrari; his seven world titles are on record. In 2026 he is in his second season with the team as the grid chases race wins and the constructors’ fight.',
+        'Max Verstappen has been the driver to beat in recent seasons with Red Bull—check official F1 results for current standings.',
         'Qualifying gaps and upgrade timelines swing every weekend; use official timing sheets for live pace.',
       ],
     },
@@ -807,7 +807,7 @@ export const SPORTS: SportContent[] = [
     id: 'tennis',
     emoji: '🎾',
     name: 'Tennis',
-    headline: 'Tennis · Clay 2026',
+    headline: 'Tennis · April 2026',
     metaSuffix: 'Tour swing',
     briefPill: 'CLAY',
     briefParts: [
@@ -912,7 +912,7 @@ export function getSport(id: SportId): SportContent {
 export function levelMeta(level: FanLevel): string {
   switch (level) {
     case 'novice':
-      return 'Just In'
+      return 'Novice'
     case 'casual':
       return 'Casual'
     case 'diehard':
