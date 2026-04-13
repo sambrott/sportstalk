@@ -2,6 +2,21 @@ import { type FormEvent, useEffect, useRef, useState } from 'react'
 import type { SportContent, SportId } from '../types'
 import { getSportAssistantReply } from '../lib/sportAssistantReply'
 
+/** Stable variety per sport; kind, direct prompts (no empty chat wall of disclaimer). */
+function emptyAssistantPrompt(sportName: string, sportId: SportId): string {
+  const prompts = [
+    `Hey—what do you need to know about ${sportName}?`,
+    `What's on your mind? Ask about ${sportName} and I'll give you a straight answer.`,
+    `What should we clear up—rules, storylines, or what's happening now?`,
+    `Tell me what you're trying to figure out. I work best with a specific question.`,
+    `Quick check: what do you want to know about ${sportName} today?`,
+    `I'm here—ask away. What matters most to you right now?`,
+  ]
+  let n = 0
+  for (let i = 0; i < sportId.length; i++) n += sportId.charCodeAt(i)
+  return prompts[n % prompts.length]
+}
+
 type Props = {
   sportId: SportId
   sport: SportContent
@@ -39,9 +54,7 @@ export function SportAssistantChat({ sportId, sport, variant, formId = 'sport-as
     <div className={`${base}`}>
       <div className={`${base}__messages`} ref={listRef} role="log" aria-live="polite">
         {messages.length === 0 ? (
-          <p className={`${base}__empty`}>
-            Answers are demo-only and use your selected sport ({sport.name}). No account required.
-          </p>
+          <p className={`${base}__empty`}>{emptyAssistantPrompt(sport.name, sportId)}</p>
         ) : (
           messages.map((msg, i) => (
             <div

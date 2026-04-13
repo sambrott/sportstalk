@@ -184,17 +184,17 @@ export default function App() {
         </aside>
 
         <div className="center">
-          <div className="desktop-gd-strip">
-            <button type="button" className="gd-btn-sl gd-btn-sl--center" onClick={() => setModalOpen(true)}>
-              Game Day Brief
-            </button>
-          </div>
           <header className="topbar">
             <div>
               <div className="topbar-sport">{sport.headline}</div>
               <div className="topbar-meta">{metaLine}</div>
             </div>
           </header>
+          <div className="desktop-gd-strip">
+            <button type="button" className="gd-btn-sl gd-btn-sl--center" onClick={() => setModalOpen(true)}>
+              Game Day Brief
+            </button>
+          </div>
           <main className="feed">
             <SportFeed
               key={sportId}
