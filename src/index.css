@@ -2992,42 +2992,16 @@ button {
   border: 0;
 }
 
-/* Mobile assistant landing (first screen) */
+/* Mobile assistant landing (first screen) — Claude-style dark chat shell */
 .m-assist {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
   position: relative;
-  background: var(--paper);
-  color: var(--text);
-}
-
-.m-assist__gradient {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  /* Layered glow: warm base + subtle blue lift + soft vertical wash */
-  background:
-    radial-gradient(ellipse 125% 85% at 50% 100%, rgba(232, 64, 28, 0.42) 0%, rgba(232, 64, 28, 0.14) 44%, transparent 72%),
-    radial-gradient(ellipse 85% 60% at 8% 12%, rgba(28, 92, 232, 0.1) 0%, transparent 58%),
-    radial-gradient(ellipse 75% 55% at 92% 18%, rgba(232, 64, 28, 0.09) 0%, transparent 52%),
-    linear-gradient(
-      to top,
-      rgba(232, 64, 28, 0.1) 0%,
-      rgba(245, 242, 235, 0) 62%
-    );
-}
-
-@media (prefers-color-scheme: dark) {
-  .m-assist__gradient {
-    background:
-      radial-gradient(ellipse 125% 85% at 50% 100%, rgba(232, 64, 28, 0.48) 0%, rgba(232, 64, 28, 0.16) 42%, transparent 72%),
-      radial-gradient(ellipse 85% 60% at 8% 12%, rgba(28, 92, 232, 0.18) 0%, transparent 58%),
-      radial-gradient(ellipse 75% 55% at 92% 18%, rgba(232, 64, 28, 0.14) 0%, transparent 52%),
-      linear-gradient(to top, rgba(232, 64, 28, 0.14) 0%, rgba(38, 38, 38, 0) 62%);
-  }
+  background: #141414;
+  color: #eceae4;
+  color-scheme: dark;
 }
 
 .m-assist__inner {
@@ -3037,8 +3011,8 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  padding: 12px 16px 16px;
-  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+  padding: 12px 16px 12px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0));
 }
 
 .m-assist__hd {
@@ -3054,25 +3028,94 @@ button {
 
 .m-assist__brand {
   font-size: 23.5px;
+  color: #f5f2eb;
+}
+
+.m-assist__brand em {
+  color: var(--accent);
+}
+
+.m-assist .hbg-line {
+  background: #e8e7e2;
+}
+
+.m-assist .m-nav-peek {
+  background: #1e1e1e;
+  color: #eceae4;
+  border-color: #333;
+}
+
+.m-assist .m-nav-peek:hover {
+  background: #2a2a2a;
 }
 
 .m-assist__invite {
   font-size: 16.8px;
   line-height: 1.55;
   margin: 0;
-  color: var(--text);
+  color: #b9b3a8;
 }
 
 .m-assist__invite strong {
-  color: var(--accent);
+  color: #e8a16c;
+}
+
+.m-assist__chat {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+
+.m-assist__chat .asst-mobile {
+  margin-top: 0;
+}
+
+.m-assist__chat .asst-mobile--claude .asst-mobile__thread {
+  background: transparent;
+  border: none;
+  max-height: none;
+  margin-bottom: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.m-assist__chat .asst-mobile--claude .asst-mobile__hint {
+  text-align: center;
+  margin-left: 0;
 }
 
 .m-assist__actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: stretch;
   gap: 10px;
-  margin: 18px 0 16px;
+  margin-top: 12px;
   flex-shrink: 0;
+}
+
+.m-assist__actions .m-gd-btn,
+.m-assist__actions .m-assist__dive {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12.3px;
+  line-height: 1.2;
+  padding: 12px 8px;
+  min-height: 48px;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.m-assist__actions .m-gd-btn {
+  letter-spacing: 0.06em;
+  font-size: 12.1px;
 }
 
 .m-assist__gd {
@@ -3080,21 +3123,18 @@ button {
 }
 
 .m-assist__dive {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--white);
-  color: var(--ink);
   font-weight: 600;
-  font-size: 15.7px;
   font-family: inherit;
   cursor: pointer;
-  transition: background 0.15s;
+  border: 1px solid #3a3a3a;
+  background: #1a1a1a;
+  color: #eceae4;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .m-assist__dive:hover {
-  background: var(--paper2);
+  background: #222;
+  border-color: #4a4a4a;
 }
 
 /* Assistant chat — mobile landing */

@@ -20,7 +20,6 @@ export function MobileAssistantLanding({
 }: Props) {
   return (
     <div className="m-assist">
-      <div className="m-assist__gradient" aria-hidden />
       <div className="m-assist__inner">
         <header className="m-assist__hd">
           <div className="m-assist__nav">
@@ -42,16 +41,23 @@ export function MobileAssistantLanding({
           </p>
         </header>
 
-        <div className="m-assist__actions">
+        <div className="m-assist__chat">
+          <SportAssistantChat sportId={sportId} sport={sport} variant="mobile-landing" formId="m-assist-chat" />
+        </div>
+
+        <div className="m-assist__actions" role="group" aria-label="App shortcuts">
           <button type="button" className="m-gd-btn m-assist__gd" onClick={onGameDay}>
             Game Day Brief
           </button>
-          <button type="button" className="m-assist__dive" onClick={onEnterMain}>
-            Deeper dive into the app
+          <button
+            type="button"
+            className="m-assist__dive"
+            onClick={onEnterMain}
+            title="Open the main feed and cards"
+          >
+            Deeper dive
           </button>
         </div>
-
-        <SportAssistantChat sportId={sportId} sport={sport} variant="mobile-landing" formId="m-assist-chat" />
       </div>
     </div>
   )
