@@ -21,6 +21,8 @@ function espnPathForSport(id: SportId): string | null {
   switch (id) {
     case 'nba':
       return '/apis/site/v2/sports/basketball/nba/scoreboard'
+    case 'wnba':
+      return '/apis/site/v2/sports/basketball/wnba/scoreboard'
     case 'nfl':
       return '/apis/site/v2/sports/football/nfl/scoreboard'
     case 'mlb':

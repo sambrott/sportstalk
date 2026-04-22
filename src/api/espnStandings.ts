@@ -193,6 +193,8 @@ export function standingsPathForSport(id: SportId): string | null {
   switch (id) {
     case 'nba':
       return '/apis/v2/sports/basketball/nba/standings'
+    case 'wnba':
+      return '/apis/v2/sports/basketball/wnba/standings'
     case 'nfl':
       return '/apis/v2/sports/football/nfl/standings'
     case 'cfb':
@@ -296,6 +298,7 @@ export function deriveLiveStatChart(sportId: SportId, bundle: EspnStandingsBundl
 
   switch (sportId) {
     case 'nba':
+    case 'wnba':
       return {
         kind: 'bar-h',
         title: 'League snapshot — win column',

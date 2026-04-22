@@ -25,6 +25,8 @@ function lineupForSport(sportId: SportId): string[] {
       return ['QB', 'RB', 'WR', 'TE', 'LT']
     case 'f1':
       return ['Driver', 'Reserve', 'Principal', 'Technical chief', 'Strategist']
+    case 'wnba':
+      return ['G', 'G', 'F', 'F', 'C']
     case 'tennis':
       return ['Singles 1', 'Singles 2', 'Doubles', 'Coach', 'Fitness']
     default:

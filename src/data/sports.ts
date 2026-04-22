@@ -12,125 +12,188 @@ export const SPORTS: SportContent[] = [
     emoji: '🏀',
     name: 'NBA',
     badge: 'HOT',
-    headline: 'NBA · April 2026',
-    metaSuffix: 'Lakers pressure · West bracket',
+    headline: 'NBA · 2026 Playoffs',
+    metaSuffix: 'First round · live bracket in panel',
     briefPill: 'HOT',
     briefParts: [
+      { kind: 'text', text: 'The 2025-26 ' },
+      {
+        kind: 'term',
+        word: 'MVP race',
+        definition:
+          'Most Valuable Player: a media vote for the best regular season player, presented with the Kia-branded Michael Jordan Trophy. Playoff run is a separate story.',
+      },
       {
         kind: 'text',
-        text: 'The postseason is almost here. In Los Angeles, the first round could turn into a survival test: ',
+        text: " wrapped on award night, but the bracket is live: the West is a gauntlet where seeding, injuries, and late-game shot-making decide who advances. In Los Angeles, the story is health: ",
       },
       {
         kind: 'term',
         word: 'Luka Dončić',
         definition:
-          'Slovenian superstar—elite scorer, passer, and shot creator. The Lakers built their offense around him after he arrived; losing him for any stretch shifts every matchup plan.',
+          'Slovenian superstar: elite shot creation and passing. When he is on the floor the Lakers’ offense has a top-end gear; if he is limited, everything tightens for everyone else.',
       },
       { kind: 'text', text: ' and ' },
       {
         kind: 'term',
         word: 'Austin Reaves',
         definition:
-          'Homegrown Lakers guard—tough shot-making, secondary playmaking, and chemistry with the stars. When he’s out, spacing and ball-handling thin out fast.',
+          'Lakers guard: secondary creation, tough shot-making, and chemistry with the stars. If he is out, the guard rotation gets thin fast.',
       },
-      {
-        kind: 'text',
-        text: ' are both expected to miss early playoff games. That leaves the series on ',
-      },
+      { kind: 'text', text: ' matter as much as matchups. ' },
       {
         kind: 'term',
         word: 'LeBron James',
         definition:
-          'Four-time champion; once the most dominant athlete in the league. At 41 he’s far past his athletic peak—yet he’s still playing at something like an All-NBA level, which almost never happens this deep into a career. If it’s the last time he leads a real contender through a spring run, the spotlight will be brutal.',
+          'Four-time champion; still a hub on offense in his 40s. Playoff minutes and usage swing hard when other creators are in street clothes.',
       },
-      {
-        kind: 'text',
-        text: ' to manufacture offense, manage minutes, and steal enough wins to buy time for his co-stars to heal. Past his prime or not, he’s still the engine the opponent game-plans for first. Elsewhere in the West, ',
-      },
+      { kind: 'text', text: ' remains the name defenses tilt toward first. ' },
       {
         kind: 'term',
         word: 'Victor Wembanyama',
         definition:
-          '21-year-old Spur from France. Generational defensive talent at 7\'3" with an 8-foot wingspan. One of the most physically unique players in recent league history.',
+          'Spurs big: generational length and rim protection. He is central to the defensive identity, and to how far San Antonio can go in a West bracket full of pick-and-pop and drive-and-kick games.',
       },
-      { kind: 'text', text: ' is rewriting shot-blocking numbers, and the ' },
-      {
-        kind: 'term',
-        word: 'MVP race',
-        definition:
-          'Most Valuable Player: an annual award for the best regular season player. Voted by media. It matters for legacy and contract discussions.',
-      },
-      { kind: 'text', text: ' between him and ' },
+      { kind: 'text', text: ' and ' },
       {
         kind: 'term',
         word: 'Nikola Jokic',
         definition:
-          'Center for the Denver Nuggets. Three-time MVP. Serbian. Incredible passer for his size. Currently on his fourth MVP run.',
+          'Nuggets center: one of the great offensive bigs in history: passing hub, post scorer, and late-clock answer.',
       },
-      { kind: 'text', text: ' is still unsettled—while ' },
+      { kind: 'text', text: ' anchor the West with different styles, while the ' },
       {
         kind: 'term',
         word: 'OKC Thunder',
         definition:
-          'The Oklahoma City Thunder rebuilt fast; Shai Gilgeous-Alexander has them near the top of the West.',
+          'Oklahoma City: built a deep two-way team around an MVP-level season from Shai Gilgeous-Alexander: pace, pressure, and shot-making at the rim.',
       },
-      { kind: 'text', text: ' sit where few preseason boards expected.' },
+      { kind: 'text', text: ' are chasing a Finals trip that matches their regular season.' },
     ],
     stats: {
       kind: 'bar-h',
-      title: 'The Wembanyama defensive outlier',
-      subtitle: 'Blocks per game · 2025-26 leaders (ties MVP / DPOY talk to real volume)',
-      footnote: 'Editorial snapshot for context — not a live league feed.',
+      title: 'Defense still tilts the TV window',
+      subtitle: 'Blocks per game · 2025-26 (editorial; open live standings for current)',
+      footnote: 'Narrative snapshot: for live sortable stats, use league sites.',
       bars: [
-        { label: 'Wembanyama', value: '3.8', pct: 100, highlight: true },
-        { label: 'B. Adebayo', value: '2.0', pct: 53 },
-        { label: 'A. Davis', value: '1.8', pct: 47 },
-        { label: 'M. Turner', value: '1.3', pct: 34 },
+        { label: 'Wembanyama', value: '3.7+', pct: 100, highlight: true },
+        { label: 'Jaren Jackson', value: '1.6', pct: 43 },
+        { label: 'Brook López', value: '1.5', pct: 40 },
+        { label: 'Walker Kessler', value: '1.4', pct: 38 },
       ],
     },
     narratives: [
       {
         icon: '🩹',
-        html: '<strong>Lakers:</strong> If Dončić and Reaves miss the opening round, rotations shrink and every possession falls heavier on LeBron. Surviving a series isn’t just pride—it’s buying days for stars to ramp back up.',
+        html: '<strong>Health:</strong> A seven-game first round is a grind; availability for stars and rotation wings decides who can keep schemes intact.',
       },
       {
         icon: '👑',
-        html: '<strong>Longevity:</strong> At 41, still playing near an All-NBA level is the story analysts keep saying shouldn’t be possible. Playoff basketball without his two best partners turns that into a pressure cooker.',
+        html: '<strong>Playoff experience:</strong> Close games in April and May are often about execution under fatigue more than “talent on paper.”',
       },
       {
         icon: '⚡',
-        html: '<strong>West bracket:</strong> Wembanyama and Jokic still headline the MVP debate; OKC and Denver shape how tough every out becomes. Seed and health decide who gets an extra breath before the next round.',
+        html: '<strong>Seeding and home court:</strong> One extra home date can swing a series; tiebreakers from the regular season still echo in game locations.',
       },
     ],
     gameDay: {
-      blurb: 'NBA · five threads heading into the first round.',
+      blurb: 'NBA · first-round checklist for April 2026',
       points: [
-        'Los Angeles may open the playoffs without Dončić and Reaves—two players who handle creation, spacing, and late-clock offense. LeBron’s usage and rest management become the whole conversation.',
-        'The fair question: can the Lakers advance anyway and give those two time to return, or does the first round end the runway on this roster’s title hopes?',
-        'Wembanyama’s block numbers are still in another zip code from the rest of the league—defensive impact that shows up on film even when the box score looks quiet.',
-        'Jokic vs. Wembanyama in January (including a game-winner in OT) is one reason national MVP chatter never settled. Denver still runs through him every trip down.',
-        'Seeding and tiebreakers set home court in round one; in a short series, two home dates can be the margin between advancing and an early exit.',
+        'First round is best-of-seven; the bracket is split East/West until the NBA Finals. Open the right panel for a live first-round pairing view.',
+        'Matchup math changes when a primary ball-handler is on a minutes limit: secondary creators and spacing become the subtext in every game.',
+        'The West bracket combines elite bigs, elite wings, and deep benches, and one cold shooting night can flip a home-court game.',
+        'Awards (MVP, DPOY, Clutch) are regular-season; playoff stats write the career chapters fans remember in June.',
+        'ESPN’s public scoreboard API powers today’s games in the app; refresh between quarters for the latest line scores.',
       ],
     },
     moment: {
       emoji: '🏀',
-      kicker: 'L.A. crossroads',
-      headline: 'LeBron without his two best options',
-      why: 'If the first round is mostly him against the West, it’s the hardest—and maybe the last—version of that story in purple and gold.',
+      kicker: 'Postseason',
+      headline: 'The bracket is the main character',
+      why: 'Every series is a new tactical reset: switches, zone chunks, and targeted fouls all show up when possessions shrink.',
       article: [
-        'LeBron James (born December 30, 1984) is a four-time NBA champion and the league’s all-time scoring leader—widely documented milestones. At 41 in 2026 he is in an age range where almost no perimeter stars still anchor a contender’s offense.',
-        'The Lakers are staring down a brutal opening-round picture: with Luka Dončić and Austin Reaves expected to miss early playoff games, creation, spacing, and late-clock offense lean hard on LeBron. Best-of-seven series turn on health, depth, and who holds home court.',
-        'If those two stay sidelined, every possession gets louder—surviving a round buys time for the roster to get whole again; the West bracket does not wait.',
+        'The 2025-26 NBA Playoffs are a new bracket: seeding, injuries, and late-game shot-making are the variables that decide who gets four wins first in each first-round series.',
+        'In Los Angeles, how much high-level creation is available on any given night will swing both shot quality and the ability to play through pressure defense.',
+        'Across the West, teams with multiple pick-and-roll outlets and enough shooting to clear the lane are built for April and May. Use live scores and the bracket panel in this app for what is happening right now. This copy is a storyline lens, not a live box score.',
       ],
     },
     railAtAGlance: {
-      intro:
-        'Each NBA team plays 82 regular-season games. Playoffs are best-of-seven series; injuries and rest days can swing a round as much as talent on paper.',
+      intro: 'The NBA is a best-of-seven tournament after an 82-game season. The right panel can show a first-round pairing snapshot from public postseason seeds.',
       bullets: [
-        'The league splits into Eastern and Western conferences; the Finals match the East champion against the West champion.',
-        'Sixteen teams make the playoffs—eight per conference—with seeding from regular-season record and tiebreak rules.',
-        'When stars sit, minutes and shot creation flow to bench players; coaches shorten rotations and lean on matchups.',
-        'Awards like MVP are regular-season honors; playoff performance writes a separate history.',
+        'Sixteen teams make the field, eight in each conference, before the conference finals and NBA Finals.',
+        'Overtime games are sudden life in a series: rest, travel, and foul trouble compound fast.',
+      ],
+    },
+  },
+  {
+    id: 'wnba',
+    emoji: '🏀',
+    name: 'WNBA',
+    headline: 'WNBA · 2026 season',
+    metaSuffix: 'Indiana, Las Vegas, New York, Seattle',
+    briefPill: 'WNBA',
+    briefParts: [
+      { kind: 'text', text: "The WNBA is the world's premier women's professional basketball league: fast pace, elite skill, and rosters that mix veterans with recent college stars. " },
+      {
+        kind: 'term',
+        word: "Caitlin Clark",
+        definition:
+          "Former Iowa phenom; one of the biggest ratings draws in the sport. Playmaking range and three-level scoring for Indiana.",
+      },
+      { kind: 'text', text: ' and ' },
+      {
+        kind: 'term',
+        word: "A'ja Wilson",
+        definition:
+          "Two-time MVP; dominant interior presence for the Aces. Championship experience and a nightly mismatch problem for defenses.",
+      },
+      { kind: 'text', text: " headline different markets. Women's college coverage stays massive in March; the pro league carries that attention into the summer. Scores and table snapshots can pull from ESPN in this app when the season is live." },
+    ],
+    stats: {
+      kind: 'bar-h',
+      title: 'WNBA · pace vs efficiency',
+      subtitle: 'Narrative snapshot: WNBA play-by-play and stats update nightly in season',
+      footnote: 'Off-season: editorial sample only',
+      bars: [
+        { label: 'Liberty', value: '1.12', pct: 100, highlight: true },
+        { label: 'Aces', value: '1.09', pct: 97 },
+        { label: 'Lynx', value: '1.06', pct: 95 },
+        { label: 'Fever', value: '1.04', pct: 93 },
+      ],
+    },
+    narratives: [
+      { icon: '⭐', html: "<strong>Star power:</strong> Women's basketball viewership is setting records; distribution deals keep growing." },
+      { icon: '⚡', html: "<strong>Style:</strong> WNBA play emphasizes spacing, ball movement, and help defense in a slightly different game rhythm than the NBA." },
+      { icon: '📅', html: "<strong>Calendar:</strong> The league runs a spring/summer season with a clear playoff finish; tune the feed when games return." },
+    ],
+    gameDay: {
+      blurb: 'WNBA · what to know this season',
+      points: [
+        "Twelve teams, single table by conference for playoff seeding; Commissioner’s Cup mid-season window adds a trophy chase.",
+        "Roster rules and salary cap shape free agency; stars changing teams is offseason theater.",
+        "The college game feeds the pro draft; lottery odds and team needs set draft-night drama.",
+        "In-season, pace and two-point vs three-point mix often decide who can survive a short rotation night.",
+        "ESPN WNBA scoreboard is wired the same way as NBA in this app when games are on the board.",
+      ],
+    },
+    moment: {
+      emoji: '🏀',
+      kicker: 'League',
+      headline: "The women's pro product keeps scaling",
+      why: 'Talent depth, broadcast investment, and cross-over stars mean the story is as much about culture as it is about box scores.',
+      article: [
+        "The WNBA plays a distinct professional season: summer windows, a playoff bracket, and a Finals series that can swing on one player's foul trouble or a hot three-point night.",
+        "College stars transition under rookie contracts; veterans anchor playoff teams. Follow live scores in this app for current-season numbers.",
+        "The league is also a policy story: compensation, travel, and media rights are part of the public conversation year-round.",
+      ],
+    },
+    railAtAGlance: {
+      intro: "The WNBA is a 12-team league with a playoff bracket and a Finals. Rules evolve with the collective bargaining process.",
+      bullets: [
+        "Rosters are tight; one injury to a playmaker can change a season's ceiling.",
+        "Pace and three-point rate keep climbing as coaching staffs borrow NBA spacing concepts where they fit.",
+        "International players add a world-championship thread alongside the pro calendar.",
+        "Awards and All-WNBA teams matter for legacies; playoff runs write the public memory.",
       ],
     },
   },

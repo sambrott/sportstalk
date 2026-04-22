@@ -2,13 +2,18 @@ import { deriveLiveStatChart } from '../api/espnStandings'
 import type { SportContent } from '../types'
 import { useEspnStandings } from '../hooks/useEspnStandings'
 import { BriefText } from './BriefText'
+import { narrativeGlyph } from './NarrativeGlyph'
 import { CollapsibleCard } from './CollapsibleCard'
 import { StatChartView } from './StatChartView'
 
 type Props = {
   sport: SportContent
   mobile: boolean
-  onTermPress: (word: string, definition: string) => void
+  onTermPress: (
+    word: string,
+    definition: string,
+    media?: { headshotUrl?: string; kiaMvpTrophy?: boolean; imageKind?: 'player' | 'team' },
+  ) => void
   showCrash: boolean
 }
 
@@ -32,7 +37,7 @@ export function SportFeed({ sport, mobile, onTermPress, showCrash }: Props) {
           defaultOpen
           mobile={mobile}
         >
-          <BriefText parts={cc.parts} dark onTermPress={onTermPress} />
+          <BriefText sportId={sport.id} parts={cc.parts} dark onTermPress={onTermPress} />
         </CollapsibleCard>
       ) : null}
 
@@ -53,7 +58,7 @@ export function SportFeed({ sport, mobile, onTermPress, showCrash }: Props) {
           defaultOpen
           mobile={mobile}
         >
-          <BriefText parts={sport.briefParts} onTermPress={onTermPress} />
+          <BriefText sportId={sport.id} parts={sport.briefParts} onTermPress={onTermPress} />
         </CollapsibleCard>
       ) : null}
 
@@ -88,7 +93,9 @@ export function SportFeed({ sport, mobile, onTermPress, showCrash }: Props) {
           <div className={`tp-list ${mobile ? 'tp-list--m' : ''}`}>
             {sport.narratives.map((n, i) => (
               <div key={i} className="tp">
-                <div className="tp-num">{n.icon}</div>
+                <div className="tp-num" aria-hidden>
+                  {narrativeGlyph(n.icon)}
+                </div>
                 <div className="tp-text" dangerouslySetInnerHTML={{ __html: n.html }} />
               </div>
             ))}

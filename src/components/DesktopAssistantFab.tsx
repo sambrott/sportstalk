@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import type { SportContent, SportId } from '../types'
 import { SportAssistantChat } from './SportAssistantChat'
+import { IconSpark } from './ui/UiIcons'
 
 type Props = {
   sportId: SportId
@@ -30,7 +31,7 @@ export function DesktopAssistantFab({ sportId, sport, open, onToggle }: Props) {
         aria-label={`Open ${sport.name} assistant`}
       >
         <span className="fab-assistant__spark" aria-hidden>
-          ✦
+          <IconSpark />
         </span>
         <span className="fab-assistant__label">Ask</span>
       </button>
@@ -48,7 +49,7 @@ export function DesktopAssistantFab({ sportId, sport, open, onToggle }: Props) {
             <div className="assistant-panel__toolbar">
               <div className="assistant-panel__title">
                 <span className="assistant-panel__sport">{sport.name}</span>
-                <span className="assistant-panel__sub">Quick answers · demo</span>
+                <span className="assistant-panel__sub">Claude Sonnet (when key is set) · else local</span>
               </div>
               <button type="button" className="assistant-panel__close" onClick={onToggle} aria-label="Close">
                 ×

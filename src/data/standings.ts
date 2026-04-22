@@ -38,6 +38,22 @@ const nbaWest: StandingsTable = {
   ],
 }
 
+const wnba: StandingsTable = {
+  id: 'wnba',
+  title: 'WNBA · sample',
+  subtitle: '12 teams; regular season spring–summer',
+  rows: [
+    { pos: 1, name: 'New York Liberty', record: '28-8' },
+    { pos: 2, name: 'Las Vegas Aces', record: '26-10' },
+    { pos: 3, name: 'Minnesota Lynx', record: '24-12' },
+    { pos: 4, name: 'Indiana Fever', record: '22-14' },
+    { pos: 5, name: 'Phoenix Mercury', record: '20-16' },
+    { pos: 6, name: 'Seattle Storm', record: '18-18' },
+    { pos: 7, name: 'Connecticut Sun', record: '16-20' },
+    { pos: 8, name: 'Atlanta Dream', record: '14-22' },
+  ],
+}
+
 const nbaEast: StandingsTable = {
   id: 'east',
   title: 'Eastern Conference',
@@ -182,6 +198,7 @@ const cfb: StandingsTable = {
 
 const BY_SPORT: Record<SportId, StandingsTable[]> = {
   nba: [nbaWest, nbaEast],
+  wnba: [wnba],
   nfl: [nflAfc, nflNfc],
   cfb: [cfb],
   mlb: [mlb],
@@ -326,6 +343,7 @@ const NFL_LEAGUE_PREVIEW = buildLeagueTopTable(
 /** Table shown in the rail preview: league-wide top 5 when the sport splits by conference. */
 export function getPreviewTableForSport(id: SportId): StandingsTable {
   if (id === 'nba') return NBA_LEAGUE_PREVIEW
+  if (id === 'wnba') return wnba
   if (id === 'nfl') return NFL_LEAGUE_PREVIEW
   return getStandingsForSport(id)[0]
 }

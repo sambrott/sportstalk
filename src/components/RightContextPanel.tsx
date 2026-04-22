@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import type { FanLevel, SportContent, SportId } from '../types'
+import { NbaPlayoffBracketBlock } from './NbaPlayoffBracketBlock'
 import { MomentCard } from './MomentCard'
 import { StandingsBlock } from './StandingsBlock'
 import { LiveScoresBlock } from './LiveScoresBlock'
@@ -44,6 +45,7 @@ function PanelScroll({
 
   return (
     <div className="right-panel__scroll">
+      {sportId === 'nba' ? <NbaPlayoffBracketBlock /> : null}
       {primer ? (
         <section className="rail-agl" aria-label={`${sport.name} context`}>
           <p className="rail-agl__intro">{primer.intro}</p>
@@ -54,7 +56,7 @@ function PanelScroll({
           </ul>
         </section>
       ) : null}
-      {sport.moment ? <MomentCard moment={sport.moment} /> : null}
+      {sport.moment ? <MomentCard sportId={sportId} moment={sport.moment} /> : null}
 
       <StandingsBlock sportId={sportId} />
 
@@ -106,7 +108,7 @@ export function RightContextMobile({ open, onClose, sportId, sport, level }: Pro
   )
 }
 
-/** Desktop: flex rail compresses the feed, no lightbox. */
+/** Desktop: fixed right rail; does not reflow the feed. */
 export function RightContextDesktopRail({ open, onClose, sportId, sport, level }: Props) {
   useEffect(() => {
     if (!open) return

@@ -9,6 +9,7 @@ import { RightContextDesktopRail, RightContextMobile } from './components/RightC
 import { MobileAssistantLanding } from './components/MobileAssistantLanding'
 import { DesktopAssistantFab } from './components/DesktopAssistantFab'
 import { useMediaQuery } from './hooks/useMediaQuery'
+import { sportSidebarLogo } from './lib/sportLogos'
 
 const LEVELS: FanLevel[] = ['novice', 'casual', 'diehard']
 const LEVEL_LABEL: Record<FanLevel, string> = {
@@ -23,7 +24,13 @@ export default function App() {
   const [level, setLevel] = useState<FanLevel>('casual')
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
-  const [term, setTerm] = useState<{ word: string; definition: string } | null>(null)
+  const [term, setTerm] = useState<{
+    word: string
+    definition: string
+    headshotUrl?: string
+    kiaMvpTrophy?: boolean
+    imageKind?: 'player' | 'team'
+  } | null>(null)
   const [rightPanelOpen, setRightPanelOpen] = useState(false)
   /** Mobile: assistant landing first; user taps Deeper dive to see the feed. */
   const [mobileEnteredMain, setMobileEnteredMain] = useState(false)
@@ -36,8 +43,18 @@ export default function App() {
 
   const metaLine = `${sport.metaSuffix} · ${levelMeta(level)}`
 
-  const onTermPress = (word: string, definition: string) => {
-    setTerm({ word, definition })
+  const onTermPress = (
+    word: string,
+    definition: string,
+    media?: { headshotUrl?: string; kiaMvpTrophy?: boolean; imageKind?: 'player' | 'team' },
+  ) => {
+    setTerm({
+      word,
+      definition,
+      headshotUrl: media?.headshotUrl,
+      kiaMvpTrophy: media?.kiaMvpTrophy,
+      imageKind: media?.imageKind,
+    })
   }
 
   return (
@@ -45,7 +62,14 @@ export default function App() {
       <GameDayModal sport={sport} open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {term ? (
-        <TermSheet word={term.word} definition={term.definition} onClose={() => setTerm(null)} />
+        <TermSheet
+          word={term.word}
+          definition={term.definition}
+          headshotUrl={term.headshotUrl}
+          imageKind={term.imageKind}
+          kiaMvpTrophy={term.kiaMvpTrophy}
+          onClose={() => setTerm(null)}
+        />
       ) : null}
 
       {isDesktop && !rightPanelOpen ? (
@@ -166,18 +190,29 @@ export default function App() {
           </div>
           <div className="sl-sports-wrap">
             <div className="sl-sports">
-              {SPORTS.map((s) => (
-                <button
-                  key={s.id}
-                  type="button"
-                  className={`sport-row ${sportId === s.id ? 'on' : ''}`}
-                  onClick={() => setSportId(s.id)}
-                >
-                  <span className="ico">{s.emoji}</span>
-                  <span className="name">{s.name}</span>
-                  {s.badge ? <span className="badge">{s.badge}</span> : null}
-                </button>
-              ))}
+              {SPORTS.map((s) => {
+                const logo = sportSidebarLogo(s.id)
+                return (
+                  <button
+                    key={s.id}
+                    type="button"
+                    className={`sport-row ${sportId === s.id ? 'on' : ''}`}
+                    onClick={() => setSportId(s.id)}
+                  >
+                    <img
+                      className="ico ico--logo"
+                      src={logo.src}
+                      alt=""
+                      width={20}
+                      height={20}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span className="name">{s.name}</span>
+                    {s.badge ? <span className="badge">{s.badge}</span> : null}
+                  </button>
+                )
+              })}
             </div>
             <div className="sl-sports-spacer" aria-hidden />
           </div>
@@ -190,11 +225,6 @@ export default function App() {
               <div className="topbar-meta">{metaLine}</div>
             </div>
           </header>
-          <div className="desktop-gd-strip">
-            <button type="button" className="gd-btn-sl gd-btn-sl--center" onClick={() => setModalOpen(true)}>
-              Game Day Brief
-            </button>
-          </div>
           <main className="feed">
             <SportFeed
               key={sportId}
@@ -230,12 +260,19 @@ export default function App() {
       ) : null}
 
       {isDesktop ? (
-        <DesktopAssistantFab
-          sportId={sportId}
-          sport={sport}
-          open={assistantOpen}
-          onToggle={() => setAssistantOpen((o) => !o)}
-        />
+        <>
+          <div className="desktop-gd-floating">
+            <button type="button" className="gd-btn-floating" onClick={() => setModalOpen(true)}>
+              Game Day Brief
+            </button>
+          </div>
+          <DesktopAssistantFab
+            sportId={sportId}
+            sport={sport}
+            open={assistantOpen}
+            onToggle={() => setAssistantOpen((o) => !o)}
+          />
+        </>
       ) : null}
     </div>
   )

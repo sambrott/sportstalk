@@ -1,20 +1,22 @@
 import { useId, useState } from 'react'
-import type { SportContent } from '../types'
+import type { SportContent, SportId } from '../types'
+import { SportGlyph } from './SportGlyph'
 
 type Moment = NonNullable<SportContent['moment']>
 
 type Props = {
+  sportId: SportId
   moment: Moment
 }
 
-export function MomentCard({ moment }: Props) {
+export function MomentCard({ sportId, moment }: Props) {
   const [open, setOpen] = useState(false)
   const articleId = useId()
 
   return (
     <div className="moment-card moment-card--in-panel">
       <div className="moment-vis" aria-hidden>
-        {moment.emoji}
+        <SportGlyph sportId={sportId} />
       </div>
       <div className="moment-body">
         <div className="moment-kicker">{moment.kicker}</div>

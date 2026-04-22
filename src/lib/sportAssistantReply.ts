@@ -84,6 +84,16 @@ export function getSportAssistantReply(sportId: SportId, sport: SportContent, qu
       if (/grand slam|major/i.test(q))
         return `Four majors a year (Australian, French, Wimbledon, US Open). Best-of-five for men at Slams; seeding protects top players early.`
       break
+    case 'wnba':
+      if (/clark|caitlin|indiana|fever/i.test(q))
+        return `Caitlin Clark: elite guard in Indiana; huge college audience carried into the pros. Pacing, turnovers, and shot diet are the usual pro adjustments.`
+      if (/a.?ja|wilson|ace/i.test(q))
+        return `A’ja Wilson anchors Las Vegas with MVP-level two-way play; playoff runs are the chapter fans remember.`
+      if (/liberty|new york|ionescu|stewart/i.test(q))
+        return `The Liberty are a high-profile New York product—spacing, switchability, and late-game shot-making define the biggest games.`
+      if (/womens|wnba|women.s basketball/i.test(q))
+        return `The WNBA is a 12-team pro league (spring/summer). For live table and scores, use the live strip in the right panel when the season is active.`
+      break
     default:
       break
   }

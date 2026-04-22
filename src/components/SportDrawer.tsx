@@ -1,5 +1,6 @@
 import type { FanLevel, SportContent, SportId } from '../types'
 import { LEVEL_LABEL } from '../data/sports'
+import { sportSidebarLogo } from '../lib/sportLogos'
 
 type Props = {
   open: boolean
@@ -55,21 +56,32 @@ export function SportDrawer({
           Sports
         </div>
         <nav className="drawer-sports">
-          {sports.map((s) => (
-            <button
-              key={s.id}
-              type="button"
-              className={`drawer-row ${current === s.id ? 'on' : ''}`}
-              onClick={() => {
-                onPick(s.id)
-                onClose()
-              }}
-            >
-              <span className="drawer-ico">{s.emoji}</span>
-              <span className="drawer-name">{s.name}</span>
-              {s.badge ? <span className="drawer-badge">{s.badge}</span> : null}
-            </button>
-          ))}
+          {sports.map((s) => {
+            const logo = sportSidebarLogo(s.id)
+            return (
+              <button
+                key={s.id}
+                type="button"
+                className={`drawer-row ${current === s.id ? 'on' : ''}`}
+                onClick={() => {
+                  onPick(s.id)
+                  onClose()
+                }}
+              >
+                <img
+                  className="drawer-ico ico--logo"
+                  src={logo.src}
+                  alt=""
+                  width={22}
+                  height={22}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="drawer-name">{s.name}</span>
+                {s.badge ? <span className="drawer-badge">{s.badge}</span> : null}
+              </button>
+            )
+          })}
         </nav>
         <div className="drawer-foot">
           <button type="button" className="drawer-gd" onClick={() => { onGameDay(); onClose(); }}>
