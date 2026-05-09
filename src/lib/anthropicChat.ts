@@ -1,22 +1,22 @@
 /**
- * Dev: Vite proxies /api/anthropic → api.anthropic.com with ANTHROPIC_API_KEY (see vite.config).
- * Production: set up the same path on your host or the client falls back to rules-based replies.
+ * Anthropic calls go to same-origin `/api/anthropic/...`.
+ * Local dev: Vite adds `x-api-key` from `.env.local`. Production: set `ANTHROPIC_API_KEY` on Vercel/Netlify (see `api/anthropic-proxy.ts`). Never use `VITE_*` for the secret.
+ * Optional `VITE_ANTHROPIC_PROXY_BASE` if the proxy is on another origin.
  */
 const ANTHROPIC_VERSION = '2023-06-01'
 
 function anthropicBaseUrl(): string {
   if (import.meta.env.DEV) return '/api/anthropic'
-  const b = import.meta.env.VITE_ANTHROPIC_PROXY_BASE as string | undefined
-  return b?.replace(/\/$/, '') || ''
+  const explicit = import.meta.env.VITE_ANTHROPIC_PROXY_BASE as string | undefined
+  if (explicit?.trim()) return explicit.replace(/\/$/, '')
+  /** Same-origin proxy on Vercel/Netlify (see `api/` + vercel.json or netlify.toml). */
+  return '/api/anthropic'
 }
 
 type Msg = { role: 'user' | 'assistant'; text: string }
 
 export async function fetchClaudeReply(options: { system: string; messages: Msg[] }): Promise<string> {
   const base = anthropicBaseUrl()
-  if (!base) {
-    throw new Error('no_proxy')
-  }
 
   const model =
     (import.meta.env.VITE_ANTHROPIC_MODEL as string | undefined) || 'claude-sonnet-4-5-20250929'

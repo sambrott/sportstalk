@@ -49,6 +49,7 @@ export function SportFeed({ sport, mobile, onTermPress, showCrash }: Props) {
           pill={sport.briefPill}
           pillVariant={
             sport.briefPill === 'DRAFT' ||
+            sport.briefPill === 'ROOKIES' ||
             sport.briefPill === 'UCL' ||
             sport.briefPill === 'CLAY' ||
             sport.briefPill === 'SPRING'

@@ -4,6 +4,13 @@ import type { ProxyOptions } from 'vite'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
+  if (mode === 'development' && !env.ANTHROPIC_API_KEY?.trim()) {
+    console.warn(
+      '\n[sportstalk] ANTHROPIC_API_KEY is missing. Claude replies use local hints only.\n' +
+        '→ Copy .env.example to .env.local and add a key from https://console.anthropic.com/settings/keys\n' +
+        '→ If a key was ever leaked, create a new key and revoke the old one.\n',
+    )
+  }
 
   const anthProxy: ProxyOptions = {
     target: 'https://api.anthropic.com',

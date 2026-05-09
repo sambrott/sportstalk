@@ -1,0 +1,12 @@
+[build]
+  command = "pnpm run build"
+  publish = "dist"
+
+[[edge_functions]]
+  function = "anthropic"
+  path = "/api/anthropic/*"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

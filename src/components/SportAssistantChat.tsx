@@ -140,8 +140,8 @@ export function SportAssistantChat({ sportId, sport, variant, formId = 'sport-as
         </div>
         <p className={`${base}__hint`}>
           {import.meta.env.DEV
-            ? 'Claude (dev) when ANTHROPIC_API_KEY is set; otherwise local hints.'
-            : 'Uses your Anthropic proxy when configured; otherwise local hints.'}
+            ? 'Claude via Vite proxy when .env.local has ANTHROPIC_API_KEY.'
+            : 'Claude when the host sets ANTHROPIC_API_KEY (see Vercel/Netlify in repo); otherwise local hints.'}
         </p>
       </form>
     </div>

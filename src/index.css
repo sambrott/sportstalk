@@ -1503,7 +1503,7 @@ button {
 
 .tp {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 11px;
   padding: 10px 13px;
   background: var(--paper2);
@@ -1529,7 +1529,11 @@ button {
   margin-top: 0;
   width: auto;
   min-width: 2rem;
+  min-height: 2rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Numeric labels in lists (if used) */
@@ -3464,19 +3468,16 @@ button {
   height: 20px;
   color: var(--accent);
   flex-shrink: 0;
-}
-.tp-num {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 .glyph-fallback {
-  display: inline-block;
+  display: block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--muted);
   opacity: 0.5;
+  margin: auto;
 }
 
 /* Term chips w/ headshots (NBA) — same accent as .pill--hot / .term */
@@ -3679,6 +3680,7 @@ button {
   width: 32px;
   height: 32px;
   color: var(--accent);
+  display: block;
 }
 
 .fab-assistant__spark .ui-ico {

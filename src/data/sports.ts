@@ -12,8 +12,8 @@ export const SPORTS: SportContent[] = [
     emoji: '🏀',
     name: 'NBA',
     badge: 'HOT',
-    headline: 'NBA · 2026 Playoffs',
-    metaSuffix: 'First round · live bracket in panel',
+    headline: 'NBA · 2026 postseason',
+    metaSuffix: 'May bracket · live scores & rail',
     briefPill: 'HOT',
     briefParts: [
       { kind: 'text', text: 'The 2025-26 ' },
@@ -21,60 +21,70 @@ export const SPORTS: SportContent[] = [
         kind: 'term',
         word: 'MVP race',
         definition:
-          'Most Valuable Player: a media vote for the best regular season player, presented with the Kia-branded Michael Jordan Trophy. Playoff run is a separate story.',
+          'Most Valuable Player: a media vote for the best regular season player, presented with the Kia-branded Michael Jordan Trophy. Playoff basketball is scored on a different clock.',
       },
       {
         kind: 'text',
-        text: " wrapped on award night, but the bracket is live: the West is a gauntlet where seeding, injuries, and late-game shot-making decide who advances. In Los Angeles, the story is health: ",
+        text: ' is settled on paper, but May is about the bracket: ',
       },
       {
         kind: 'term',
-        word: 'Luka Dončić',
+        word: 'Detroit Pistons',
         definition:
-          'Slovenian superstar: elite shot creation and passing. When he is on the floor the Lakers’ offense has a top-end gear; if he is limited, everything tightens for everyone else.',
+          'Young East contender that surged to the conference’s best regular-season record in 2025-26. Defense, depth, and shot-making from the backcourt decide how long a run lasts.',
       },
-      { kind: 'text', text: ' and ' },
+      { kind: 'text', text: ' took the East’s top seed, while the ' },
       {
         kind: 'term',
-        word: 'Austin Reaves',
+        word: 'OKC Thunder',
         definition:
-          'Lakers guard: secondary creation, tough shot-making, and chemistry with the stars. If he is out, the guard rotation gets thin fast.',
+          'Oklahoma City: league-best 64 wins in 2025-26 with a deep two-way roster built around MVP-level play from Shai Gilgeous-Alexander.',
       },
-      { kind: 'text', text: ' matter as much as matchups. ' },
       {
-        kind: 'term',
-        word: 'LeBron James',
-        definition:
-          'Four-time champion; still a hub on offense in his 40s. Playoff minutes and usage swing hard when other creators are in street clothes.',
+        kind: 'text',
+        text: ' posted the NBA’s best mark and chase a Finals trip that honors that regular season. Out West, ',
       },
-      { kind: 'text', text: ' remains the name defenses tilt toward first. ' },
       {
         kind: 'term',
         word: 'Victor Wembanyama',
         definition:
-          'Spurs big: generational length and rim protection. He is central to the defensive identity, and to how far San Antonio can go in a West bracket full of pick-and-pop and drive-and-kick games.',
+          'Spurs big: generational length and rim protection. San Antonio jumped to the West’s two-seed; his minutes and foul ties matter in a half-court series.',
       },
       { kind: 'text', text: ' and ' },
       {
         kind: 'term',
         word: 'Nikola Jokic',
         definition:
-          'Nuggets center: one of the great offensive bigs in history: passing hub, post scorer, and late-clock answer.',
+          'Nuggets center: one of the great offensive bigs ever—passing hub, post scorer, late-clock answer—on a Denver team that remains a tactician’s problem.',
       },
-      { kind: 'text', text: ' anchor the West with different styles, while the ' },
+      { kind: 'text', text: ' still headline the big-man matchups, while ' },
       {
         kind: 'term',
-        word: 'OKC Thunder',
+        word: 'LeBron James',
         definition:
-          'Oklahoma City: built a deep two-way team around an MVP-level season from Shai Gilgeous-Alexander: pace, pressure, and shot-making at the rim.',
+          'Four-time champion; hub on offense in his 40s. The Lakers secured a top-four West seed; his minutes and creation still tilt defensive game plans.',
       },
-      { kind: 'text', text: ' are chasing a Finals trip that matches their regular season.' },
+      { kind: 'text', text: ', ' },
+      {
+        kind: 'term',
+        word: 'Luka Dončić',
+        definition:
+          'Slovenian superstar: elite shot creation and passing. LA’s offense has a top gear when he is healthy and available down the stretch.',
+      },
+      { kind: 'text', text: ', and ' },
+      {
+        kind: 'term',
+        word: 'Cade Cunningham',
+        definition:
+          'Pistons lead guard: size, pace, and pick-and-roll scoring. How he handles playoff pressure is a central plot in Detroit’s return to relevance.',
+      },
+      { kind: 'text', text: ' carry the stars-and-schemes story as the conference finals picture sharpens.' },
     ],
     stats: {
       kind: 'bar-h',
       title: 'Defense still tilts the TV window',
-      subtitle: 'Blocks per game · 2025-26 (editorial; open live standings for current)',
-      footnote: 'Narrative snapshot: for live sortable stats, use league sites.',
+      subtitle: 'Blocks per game · 2025-26 regular season (editorial snapshot)',
+      footnote: 'For live leaders, use NBA.com/ESPN; this card highlights rim protection names fans recognize.',
       bars: [
         { label: 'Wembanyama', value: '3.7+', pct: 100, highlight: true },
         { label: 'Jaren Jackson', value: '1.6', pct: 43 },
@@ -85,43 +95,44 @@ export const SPORTS: SportContent[] = [
     narratives: [
       {
         icon: '🩹',
-        html: '<strong>Health:</strong> A seven-game first round is a grind; availability for stars and rotation wings decides who can keep schemes intact.',
+        html: '<strong>Health:</strong> Multi-round basketball is a grind; who can keep their rotation intact through extra travel nights decides who still has counters in late May.',
       },
       {
         icon: '👑',
-        html: '<strong>Playoff experience:</strong> Close games in April and May are often about execution under fatigue more than “talent on paper.”',
+        html: '<strong>Short-clock execution:</strong> Possessions shrink in the paint; late-shot discipline and foul avoidance swing games more than raw talent on a whiteboard.',
       },
       {
         icon: '⚡',
-        html: '<strong>Seeding and home court:</strong> One extra home date can swing a series; tiebreakers from the regular season still echo in game locations.',
+        html: '<strong>Seeding echo:</strong> Home dates and rest edges earned in the 82-game ledger still echo in game locations until someone lifts the trophy.',
       },
     ],
     gameDay: {
-      blurb: 'NBA · first-round checklist for April 2026',
+      blurb: 'NBA · May 2026 postseason checklist',
       points: [
-        'First round is best-of-seven; the bracket is split East/West until the NBA Finals. Open the right panel for a live first-round pairing view.',
-        'Matchup math changes when a primary ball-handler is on a minutes limit: secondary creators and spacing become the subtext in every game.',
-        'The West bracket combines elite bigs, elite wings, and deep benches, and one cold shooting night can flip a home-court game.',
-        'Awards (MVP, DPOY, Clutch) are regular-season; playoff stats write the career chapters fans remember in June.',
-        'ESPN’s public scoreboard API powers today’s games in the app; refresh between quarters for the latest line scores.',
+        'Conference rounds are best-of-seven; every series resets matchups—switches, zone stretches, and intentional fouls reappear as coaches hunt edges.',
+        'Open the right panel for ESPN-fed first-round/postseason context; lineups and injury reports can shift between morning shootaround and tipoff.',
+        'The West still runs through elite bigs and shot-making wings; one cold night from deep can flip a home game.',
+        'Regular-season awards are decided; what fans remember from this month is who closed quarters and who stayed efficient on short rest.',
+        'This app’s scoreboard pulls ESPN’s public API—refresh between quarters for the latest line scores.',
       ],
     },
     moment: {
       emoji: '🏀',
       kicker: 'Postseason',
-      headline: 'The bracket is the main character',
-      why: 'Every series is a new tactical reset: switches, zone chunks, and targeted fouls all show up when possessions shrink.',
+      headline: 'Seeds meet scar tissue',
+      why: 'May basketball is about who still has counters when possessions tighten and the crowd gets loud.',
       article: [
-        'The 2025-26 NBA Playoffs are a new bracket: seeding, injuries, and late-game shot-making are the variables that decide who gets four wins first in each first-round series.',
-        'In Los Angeles, how much high-level creation is available on any given night will swing both shot quality and the ability to play through pressure defense.',
-        'Across the West, teams with multiple pick-and-roll outlets and enough shooting to clear the lane are built for April and May. Use live scores and the bracket panel in this app for what is happening right now. This copy is a storyline lens, not a live box score.',
+        'The 2025-26 bracket followed an 82-game ladder: Detroit led the East, Oklahoma City paced the league, and San Antonio vaulted toward the top of the West behind a dominant defense-first identity.',
+        'Los Angeles and Denver still blend star shot creation with playoff-tested coaching; matchups on the wing and at the rim decide how far each trip goes.',
+        'Use live scores and the rail in this app for what is happening tonight—this copy is a storyline lens, not a substitute for the box score.',
       ],
     },
     railAtAGlance: {
-      intro: 'The NBA is a best-of-seven tournament after an 82-game season. The right panel can show a first-round pairing snapshot from public postseason seeds.',
+      intro:
+        'The NBA plays best-of-seven series through four rounds. The right panel can mirror public postseason pairings and tonight’s scoreboard.',
       bullets: [
-        'Sixteen teams make the field, eight in each conference, before the conference finals and NBA Finals.',
-        'Overtime games are sudden life in a series: rest, travel, and foul trouble compound fast.',
+        'Sixteen teams open on each side of the draw; conference champions meet in the Finals.',
+        'Overtime swings rest and travel—depth and foul trouble compound faster in round three than in round one.',
       ],
     },
   },
@@ -153,7 +164,7 @@ export const SPORTS: SportContent[] = [
       kind: 'bar-h',
       title: 'WNBA · pace vs efficiency',
       subtitle: 'Narrative snapshot: WNBA play-by-play and stats update nightly in season',
-      footnote: 'Off-season: editorial sample only',
+      footnote: '2026 opening week: sample efficiency marks; live stats when games are on the board',
       bars: [
         { label: 'Liberty', value: '1.12', pct: 100, highlight: true },
         { label: 'Aces', value: '1.09', pct: 97 },
@@ -169,7 +180,7 @@ export const SPORTS: SportContent[] = [
     gameDay: {
       blurb: 'WNBA · what to know this season',
       points: [
-        "Twelve teams, single table by conference for playoff seeding; Commissioner’s Cup mid-season window adds a trophy chase.",
+        'Thirteen-plus teams after expansion; playoff seeding still runs East/West with a Commissioner’s Cup window mid-season.',
         "Roster rules and salary cap shape free agency; stars changing teams is offseason theater.",
         "The college game feeds the pro draft; lottery odds and team needs set draft-night drama.",
         "In-season, pace and two-point vs three-point mix often decide who can survive a short rotation night.",
@@ -188,7 +199,8 @@ export const SPORTS: SportContent[] = [
       ],
     },
     railAtAGlance: {
-      intro: "The WNBA is a 12-team league with a playoff bracket and a Finals. Rules evolve with the collective bargaining process.",
+      intro:
+        'The WNBA is a growing pro league with a playoff bracket and Finals. Expansion cities and the collective bargaining thread keep the off-court story busy too.',
       bullets: [
         "Rosters are tight; one injury to a playmaker can change a season's ceiling.",
         "Pace and three-point rate keep climbing as coaching staffs borrow NBA spacing concepts where they fit.",
@@ -201,18 +213,25 @@ export const SPORTS: SportContent[] = [
     id: 'nfl',
     emoji: '🏈',
     name: 'NFL',
-    headline: 'NFL · April 2026',
-    metaSuffix: 'Draft & cap season',
-    briefPill: 'DRAFT',
+    headline: 'NFL · May 2026',
+    metaSuffix: 'OTAs & roster build',
+    briefPill: 'ROOKIES',
     briefParts: [
-      { kind: 'text', text: 'The league is between games. The ' },
+      { kind: 'text', text: 'The ' },
       {
         kind: 'term',
         word: 'NFL Draft',
         definition:
           'Annual event where all 32 teams select college players entering the pros. Held in April. The first round is primetime TV, with trades, surprises, and franchise-altering decisions.',
       },
-      { kind: 'text', text: ' is the headline. Front offices live in the ' },
+      { kind: 'text', text: ' just reshaped depth charts; May is when draft picks and undrafted free agents race through installs at ' },
+      {
+        kind: 'term',
+        word: 'rookie minicamps',
+        definition:
+          'Non-padded practices where rookies learn terminology, rehab nagging injuries, and audition for roster spots before veterans report later in the summer.',
+      },
+      { kind: 'text', text: '. Front offices still live in the ' },
       {
         kind: 'term',
         word: 'salary cap',
@@ -233,7 +252,7 @@ export const SPORTS: SportContent[] = [
         definition:
           'Period when veterans can sign with new teams. Often March frenzy. Big names move; cap casualties get cut.',
       },
-      { kind: 'text', text: ' reshapes rosters before the draft. The ' },
+      { kind: 'text', text: ' market can still spin late into spring. The ' },
       {
         kind: 'term',
         word: 'Kansas City Chiefs',
@@ -242,14 +261,14 @@ export const SPORTS: SportContent[] = [
       },
       {
         kind: 'text',
-        text: ' tweak around the edges. Detroit has been competitive deep into January; the front office is under pressure to keep the window open.',
+        text: ' tweak around the edges. Seattle earned the NFC’s best record in 2025; New England matched that mark in the AFC—both enter summer with expectations and injury luck to manage.',
       },
     ],
     stats: {
       kind: 'bar-v',
       title: 'Which QBs defined the scoreboard?',
       subtitle: 'Passing touchdowns · full 2025 season through the playoff window',
-      footnote: 'Illustrative leaderboard for April draft / cap chatter — totals depend on playoff length.',
+      footnote: 'Illustrative leaderboard after the 2025 season — totals depend on playoff length.',
       valueSuffix: ' TD',
       bars: [
         { label: 'J. Allen', value: '43', pct: 100, highlight: true },
@@ -273,22 +292,22 @@ export const SPORTS: SportContent[] = [
       },
     ],
     gameDay: {
-      blurb: 'NFL · five things going on before the draft.',
+      blurb: 'NFL · five things happening after the draft.',
       points: [
-        'Late April is draft month: the first round is prime time for trades, surprise picks, and instant reactions.',
-        'Several teams near the top of the draft order need a long-term answer at quarterback.',
-        'Kansas City has reshaped parts of the roster while keeping Mahomes at center.',
-        'Detroit has moved from rebuild to contender in a short window; offseason moves will be watched closely.',
-        'After the draft, rookie minicamps and summer camp battles decide who actually plays in September.',
+        'May is when drafted rookies meet coaches: installs, testing, and depth-chart hints without pads.',
+        'Veteran free-agency waves continue; June 1 cap mechanics still shape late additions.',
+        'Seattle and New England posted the NFL’s best records in 2025; summer proves whether that translates forward.',
+        'Kansas City still orbits Patrick Mahomes; retooling never stops for contenders.',
+        'Detroit took a step back in the standings but stays a national story—fit and health in camp will draw clicks all summer.',
       ],
     },
     moment: {
       emoji: '🏈',
       kicker: 'Calendar',
-      headline: 'The draft is the main event',
-      why: 'April is when college players land with pro teams and depth charts start to take shape.',
+      headline: 'Rookies meet the playbook',
+      why: 'May installs set the tone before training camp pads go on in the summer.',
       article: [
-        'The NFL Draft is traditionally held in spring (late April): seven rounds, 32 franchises, with the first round carrying the most TV attention. Draft order generally tracks the prior season’s standings, modified by trades.',
+        'The NFL Draft is traditionally held in spring (late April): seven rounds, 32 franchises, with the first round carrying the most TV attention. In May, the focus shifts to coaching rookies and rebuilding depth charts.',
         'The league operates under a hard salary cap; rookie contracts are slotted, but veterans are signed, cut, and restructured under cap rules that change slightly with each collective bargaining cycle.',
         'Public mock drafts are speculation. Real team boards stay private until picks are announced.',
       ],
@@ -309,7 +328,7 @@ export const SPORTS: SportContent[] = [
     emoji: '🏟',
     name: 'College Football',
     badge: 'NEW',
-    headline: 'College Football · April 2026',
+    headline: 'College Football · May 2026',
     metaSuffix: 'Spring storylines',
     briefPill: 'SPRING',
     crashCourse: {
@@ -433,7 +452,7 @@ export const SPORTS: SportContent[] = [
     id: 'mlb',
     emoji: '⚾',
     name: 'MLB',
-    headline: 'MLB · April 2026',
+    headline: 'MLB · May 2026',
     metaSuffix: 'Opening stretch',
     briefPill: 'OPENING',
     briefParts: [
@@ -470,7 +489,7 @@ export const SPORTS: SportContent[] = [
         definition:
           'Minor-league players who might reach the majors. Traded at the deadline for stars. Farm system rankings fuel offseason talk.',
       },
-      { kind: 'text', text: ' and payroll tiers; July trade season is still months away, but April injuries already shift roster plans.' },
+      { kind: 'text', text: ' and payroll tiers; July trade season approaches, and early-summer injuries already shift roster plans.' },
     ],
     stats: {
       kind: 'bar-h',
@@ -495,7 +514,7 @@ export const SPORTS: SportContent[] = [
       },
       {
         icon: '📅',
-        html: '<strong>July deadline:</strong> Contenders buy; rebuilders trade stars for prospects. April standings hint who is which.',
+        html: '<strong>July deadline:</strong> Contenders buy; rebuilders trade stars for prospects. May standings hint who is which.',
       },
     ],
     gameDay: {
@@ -505,7 +524,7 @@ export const SPORTS: SportContent[] = [
         'The Dodgers carry high expectations every year because of payroll and star depth.',
         'The Yankees remain a high-profile AL team; their season is judged against October.',
         'The pitch clock rule changed pace of play; game times dropped versus pre-2023 norms.',
-        'Division races run six months; April standings are a snapshot, not a verdict.',
+        'Division races run six months; May standings are an early read, not a verdict.',
       ],
     },
     moment: {
@@ -534,8 +553,8 @@ export const SPORTS: SportContent[] = [
     id: 'nhl',
     emoji: '🏒',
     name: 'NHL',
-    headline: 'NHL · April 2026',
-    metaSuffix: 'Playoff push',
+    headline: 'NHL · May 2026',
+    metaSuffix: 'Stanley Cup playoffs',
     briefPill: 'PLAYOFFS',
     crashCourse: {
       kicker: 'New to hockey?',
@@ -593,13 +612,13 @@ export const SPORTS: SportContent[] = [
       },
       {
         kind: 'text',
-        text: '. Florida has been a recent Cup winner with structure up and down the lineup; seeding and goalie health will shape April.',
+        text: '. Colorado and Carolina posted elite regular seasons; seeding and goalie health still write the nightly script.',
       },
     ],
     stats: {
       kind: 'diverging',
       title: 'Playoff push — who is outscoring problems?',
-      subtitle: 'Team goal differential · last 10 games (momentum into April)',
+      subtitle: 'Team goal differential · momentum into May',
       footnote: 'Positive = more goals scored than allowed in the sample window.',
       rows: [
         { label: 'WPG', net: 14 },
@@ -627,7 +646,7 @@ export const SPORTS: SportContent[] = [
       points: [
         'McDavid is the offensive standard; Edmonton\'s playoff runs draw national attention.',
         'Playoff hockey uses sudden-death overtime; games can end on any shot.',
-        'Goalies face more rubber in April; save percentage swings series.',
+        'Goalies face more rubber in May; save percentage swings series.',
         'Recent champions have leaned on depth, defense, and goaltending through four playoff rounds.',
         'The Stanley Cup is a best-of-seven each round; travel and injuries stack up fast.',
       ],
@@ -639,7 +658,7 @@ export const SPORTS: SportContent[] = [
       why: 'The bracket is a grind; special teams and goaltending decide who advances.',
       article: [
         'The Stanley Cup playoffs are four rounds of best-of-seven series, then the Finals. Seeds follow regular-season points and published NHL tiebreakers.',
-        'Goalies face intense shot volumes in April; save percentage and special teams often decide one-goal games.',
+        'Goalies face intense shot volumes in May; save percentage and special teams often decide one-goal games.',
         'Star skaters (e.g., Connor McDavid) are well documented; whether a team wins the Cup is decided on the ice, not in previews.',
       ],
     },
@@ -658,7 +677,7 @@ export const SPORTS: SportContent[] = [
     id: 'soccer',
     emoji: '⚽',
     name: 'Soccer',
-    headline: 'Soccer · April 2026',
+    headline: 'Soccer · May 2026',
     metaSuffix: 'Club season',
     briefPill: 'UCL',
     briefParts: [
@@ -870,7 +889,7 @@ export const SPORTS: SportContent[] = [
     id: 'tennis',
     emoji: '🎾',
     name: 'Tennis',
-    headline: 'Tennis · April 2026',
+    headline: 'Tennis · May 2026',
     metaSuffix: 'Tour swing',
     briefPill: 'CLAY',
     briefParts: [

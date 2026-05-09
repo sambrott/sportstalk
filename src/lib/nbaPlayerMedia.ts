@@ -16,6 +16,7 @@ const NBA_HEADSHOT_BY_NAME: Record<string, string> = {
   'victor wembanyama': '1641705',
   'nikola jokic': '203999',
   'shai gilgeous-alexander': '1628983',
+  'cade cunningham': '1630595',
 }
 
 /** ESPN team logo paths (3-letter slug) — for glossary terms that are teams. */
@@ -27,6 +28,8 @@ const NBA_TEAM_LOGO_SLUG: Record<string, string> = {
   'denver nuggets': 'den',
   'spurs': 'sa',
   'san antonio spurs': 'sa',
+  'detroit pistons': 'det',
+  'pistons': 'det',
 }
 
 export type NbaTermVisual = { kind: 'player'; url: string } | { kind: 'team'; url: string }

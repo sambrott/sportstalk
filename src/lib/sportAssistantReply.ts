@@ -92,7 +92,7 @@ export function getSportAssistantReply(sportId: SportId, sport: SportContent, qu
       if (/liberty|new york|ionescu|stewart/i.test(q))
         return `The Liberty are a high-profile New York product—spacing, switchability, and late-game shot-making define the biggest games.`
       if (/womens|wnba|women.s basketball/i.test(q))
-        return `The WNBA is a 12-team pro league (spring/summer). For live table and scores, use the live strip in the right panel when the season is active.`
+        return `The WNBA is a growing pro league—now well over a dozen franchises (spring/summer). For live table and scores, use the live strip in the right panel when the season is active.`
       break
     default:
       break
