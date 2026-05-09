@@ -1,6 +1,6 @@
 /**
  * Anthropic calls go to same-origin `/api/anthropic/...`.
- * Local dev: Vite adds `x-api-key` from `.env.local`. Production: set `ANTHROPIC_API_KEY` on Vercel/Netlify (see `api/anthropic-proxy.ts`). Never use `VITE_*` for the secret.
+ * Local dev: Vite adds `x-api-key` from `.env.local`. Production: set `ANTHROPIC_API_KEY` on Vercel/Netlify (see `api/anthropic/[...path].ts`). Never use `VITE_*` for the secret.
  * Optional `VITE_ANTHROPIC_PROXY_BASE` if the proxy is on another origin.
  */
 const ANTHROPIC_VERSION = '2023-06-01'

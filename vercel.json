@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/api/anthropic/(.*)",
-      "destination": "/api/anthropic-proxy?p=$1"
-    },
-    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }

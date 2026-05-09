@@ -1,9 +1,10 @@
 /**
- * Vercel Edge: rewritten from /api/anthropic/* → /api/anthropic-proxy?p=<suffix>
- * Secret ANTHROPIC_API_KEY is set in the Vercel project env (never in VITE_*).
+ * POST /api/anthropic/v1/messages → forwards to api.anthropic.com (same path suffix).
+ * Set ANTHROPIC_API_KEY in Vercel → Settings → Environment Variables for Production
+ * (and Preview if you test there). Redeploy after adding or changing the key.
+ *
+ * Default Node.js runtime so `process.env` matches dashboard env (Edge can omit vars in some setups).
  */
-export const runtime = 'edge'
-
 const ALLOW_PREFIX = 'v1/'
 
 export default async function handler(request: Request): Promise<Response> {
@@ -23,23 +24,20 @@ export default async function handler(request: Request): Promise<Response> {
   }
 
   const url = new URL(request.url)
-  let pathSuffix = url.searchParams.get('p') || ''
-  if (!pathSuffix) {
-    const m = /^\/api\/anthropic\/(.+)$/.exec(url.pathname)
-    if (m) pathSuffix = m[1]
-  }
-
+  const pathSuffix = url.pathname.replace(/^\/api\/anthropic\/?/, '')
   if (!pathSuffix.startsWith(ALLOW_PREFIX)) {
     return json(403, { error: 'Forbidden path' })
   }
 
   const key = process.env.ANTHROPIC_API_KEY?.trim()
   if (!key) {
-    return json(503, { error: 'ANTHROPIC_API_KEY not configured on host' })
+    return json(503, {
+      error: 'ANTHROPIC_API_KEY missing',
+      hint: 'Add it in Vercel → Settings → Environment Variables, then Redeploy.',
+    })
   }
 
   const body = await request.text()
-
   const upstream = await fetch(`https://api.anthropic.com/${pathSuffix}`, {
     method: 'POST',
     headers: {
