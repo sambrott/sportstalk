@@ -3119,11 +3119,6 @@ button {
   min-height: 0;
 }
 
-.m-assist__chat .asst-mobile--claude .asst-mobile__hint {
-  text-align: center;
-  margin-left: 0;
-}
-
 .m-assist__actions {
   display: flex;
   flex-direction: row;
@@ -3434,11 +3429,6 @@ button {
   font-family: var(--display);
   font-size: 20.2px;
   letter-spacing: 0.5px;
-}
-
-.assistant-panel__sub {
-  font-size: 12.3px;
-  color: var(--muted);
 }
 
 .assistant-panel__close {
@@ -3892,12 +3882,6 @@ button {
   height: 18px;
   stroke: #111;
 }
-.asst-mobile--claude .asst-mobile__hint {
-  font-size: 10.5px;
-  color: var(--chat-mute);
-  margin: 0 0 0 6px;
-  line-height: 1.3;
-}
 .ui-ico {
   display: block;
 }
@@ -3914,8 +3898,7 @@ button {
   width: 100%;
   gap: 6px;
 }
-.asst-float--claude .asst-float__composer,
-.asst-float--claude .asst-float__hint {
+.asst-float--claude .asst-float__composer {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -4044,11 +4027,4 @@ button {
   width: 16px;
   height: 16px;
   stroke: #111;
-}
-.asst-float--claude .asst-float__hint {
-  font-size: 10px;
-  color: #9b958b;
-  margin: 0;
-  text-align: center;
-  line-height: 1.35;
 }

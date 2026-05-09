@@ -138,11 +138,6 @@ export function SportAssistantChat({ sportId, sport, variant, formId = 'sport-as
             <IconSend />
           </button>
         </div>
-        <p className={`${base}__hint`}>
-          {import.meta.env.DEV
-            ? 'Claude via Vite proxy when .env.local has ANTHROPIC_API_KEY.'
-            : 'Claude when the host sets ANTHROPIC_API_KEY (see Vercel/Netlify in repo); otherwise local hints.'}
-        </p>
       </form>
     </div>
   )

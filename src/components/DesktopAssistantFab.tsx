@@ -49,7 +49,6 @@ export function DesktopAssistantFab({ sportId, sport, open, onToggle }: Props) {
             <div className="assistant-panel__toolbar">
               <div className="assistant-panel__title">
                 <span className="assistant-panel__sport">{sport.name}</span>
-                <span className="assistant-panel__sub">Claude Sonnet (when key is set) · else local</span>
               </div>
               <button type="button" className="assistant-panel__close" onClick={onToggle} aria-label="Close">
                 ×

@@ -28,7 +28,10 @@ export async function fetchClaudeReply(options: { system: string; messages: Msg[
 
   const res = await fetch(`${base}/v1/messages`, {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'content-type': 'application/json',
+      'anthropic-version': ANTHROPIC_VERSION,
+    },
     body: JSON.stringify({
       model,
       max_tokens: 1200,
