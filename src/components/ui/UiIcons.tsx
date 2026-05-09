@@ -6,10 +6,15 @@ export function IconX() {
   )
 }
 
-export function IconSpark() {
+export function IconSpark(props: { className?: string }) {
+  const cn = ['ui-ico', 'ui-ico--spark', props.className].filter(Boolean).join(' ')
   return (
-    <svg className="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-      <path d="M12 2l1.1 4.1L17 7l-3.9 1.1L12 12l-1.1-3.9L7 7l3.9-.9L12 2z" />
+    <svg className={cn} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+      {/* Symmetric rays, centered on 12,12 for even vertical alignment in flex rows */}
+      <path
+        strokeLinecap="round"
+        d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3M5.8 5.8l2.1 2.1M16.1 16.1l2.1 2.1M18.2 5.8l-2.1 2.1M7.9 16.1l-2.1 2.1"
+      />
     </svg>
   )
 }

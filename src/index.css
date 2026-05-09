@@ -3311,10 +3311,11 @@ button {
   bottom: 22px;
   right: 22px;
   z-index: 220;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 18px;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
   border-radius: 999px;
   background: var(--accent);
   color: #fff;
@@ -3322,8 +3323,10 @@ button {
   border: none;
   cursor: pointer;
   font-family: var(--display);
-  font-size: 16.8px;
-  letter-spacing: 1.2px;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 1px;
   transition: transform 0.15s, box-shadow 0.15s;
 }
 
@@ -3337,12 +3340,20 @@ button {
 }
 
 .fab-assistant__spark {
-  font-size: 15.7px;
-  opacity: 0.95;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  line-height: 0;
 }
 
 .fab-assistant__label {
-  font-size: 15.7px;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  padding-top: 1px;
 }
 
 .assistant-scrim {
@@ -3683,9 +3694,13 @@ button {
   display: block;
 }
 
-.fab-assistant__spark .ui-ico {
+.fab-assistant__spark .ui-ico--spark {
   width: 20px;
   height: 20px;
+  display: block;
+  flex-shrink: 0;
+  /* Optical nudge: stroke caps read slightly high in round buttons */
+  transform: translateY(0.5px);
 }
 
 /* Claude-style assistant */

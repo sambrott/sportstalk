@@ -15,8 +15,33 @@ export type BriefPart =
   | { kind: 'text'; text: string }
   | { kind: 'term'; word: string; definition: string }
 
+/** Stable ids for SVG glyphs in `NarrativeGlyph` (no emoji). */
+export type NarrativeIconId =
+  | 'bandage'
+  | 'crown'
+  | 'bolt'
+  | 'star'
+  | 'calendar'
+  | 'clipboard'
+  | 'coins'
+  | 'football'
+  | 'cycle'
+  | 'tv'
+  | 'cash'
+  | 'goal'
+  | 'bus'
+  | 'globe'
+  | 'stadium'
+  | 'swap'
+  | 'wrench'
+  | 'stop'
+  | 'setSquare'
+  | 'bricks'
+  | 'ticket'
+  | 'scales'
+
 export type Narrative = {
-  icon: string
+  icon: NarrativeIconId
   html: string
 }
 
@@ -83,7 +108,6 @@ export type CrashCourse = {
 
 export type SportContent = {
   id: SportId
-  emoji: string
   name: string
   badge?: string
   headline: string
@@ -100,7 +124,6 @@ export type SportContent = {
     points: string[]
   }
   moment?: {
-    emoji: string
     kicker: string
     headline: string
     why: string

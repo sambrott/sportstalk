@@ -9,7 +9,6 @@ export const LEVEL_LABEL: Record<FanLevel, string> = {
 export const SPORTS: SportContent[] = [
   {
     id: 'nba',
-    emoji: '🏀',
     name: 'NBA',
     badge: 'HOT',
     headline: 'NBA · 2026 postseason',
@@ -94,15 +93,15 @@ export const SPORTS: SportContent[] = [
     },
     narratives: [
       {
-        icon: '🩹',
+        icon: 'bandage',
         html: '<strong>Health:</strong> Multi-round basketball is a grind; who can keep their rotation intact through extra travel nights decides who still has counters in late May.',
       },
       {
-        icon: '👑',
+        icon: 'crown',
         html: '<strong>Short-clock execution:</strong> Possessions shrink in the paint; late-shot discipline and foul avoidance swing games more than raw talent on a whiteboard.',
       },
       {
-        icon: '⚡',
+        icon: 'bolt',
         html: '<strong>Seeding echo:</strong> Home dates and rest edges earned in the 82-game ledger still echo in game locations until someone lifts the trophy.',
       },
     ],
@@ -117,7 +116,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '🏀',
       kicker: 'Postseason',
       headline: 'Seeds meet scar tissue',
       why: 'May basketball is about who still has counters when possessions tighten and the crowd gets loud.',
@@ -138,7 +136,6 @@ export const SPORTS: SportContent[] = [
   },
   {
     id: 'wnba',
-    emoji: '🏀',
     name: 'WNBA',
     headline: 'WNBA · 2026 season',
     metaSuffix: 'Indiana, Las Vegas, New York, Seattle',
@@ -173,9 +170,9 @@ export const SPORTS: SportContent[] = [
       ],
     },
     narratives: [
-      { icon: '⭐', html: "<strong>Star power:</strong> Women's basketball viewership is setting records; distribution deals keep growing." },
-      { icon: '⚡', html: "<strong>Style:</strong> WNBA play emphasizes spacing, ball movement, and help defense in a slightly different game rhythm than the NBA." },
-      { icon: '📅', html: "<strong>Calendar:</strong> The league runs a spring/summer season with a clear playoff finish; tune the feed when games return." },
+      { icon: 'star', html: "<strong>Star power:</strong> Women's basketball viewership is setting records; distribution deals keep growing." },
+      { icon: 'bolt', html: "<strong>Style:</strong> WNBA play emphasizes spacing, ball movement, and help defense in a slightly different game rhythm than the NBA." },
+      { icon: 'calendar', html: "<strong>Calendar:</strong> The league runs a spring/summer season with a clear playoff finish; tune the feed when games return." },
     ],
     gameDay: {
       blurb: 'WNBA · what to know this season',
@@ -188,7 +185,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '🏀',
       kicker: 'League',
       headline: "The women's pro product keeps scaling",
       why: 'Talent depth, broadcast investment, and cross-over stars mean the story is as much about culture as it is about box scores.',
@@ -211,7 +207,6 @@ export const SPORTS: SportContent[] = [
   },
   {
     id: 'nfl',
-    emoji: '🏈',
     name: 'NFL',
     headline: 'NFL · May 2026',
     metaSuffix: 'OTAs & roster build',
@@ -279,15 +274,15 @@ export const SPORTS: SportContent[] = [
     },
     narratives: [
       {
-        icon: '📋',
+        icon: 'clipboard',
         html: '<strong>GM theater:</strong> Mock drafts are guesses; real boards trade privacy for leverage. Smoke screens before the draft are normal.',
       },
       {
-        icon: '💰',
+        icon: 'coins',
         html: '<strong>Cap gymnastics:</strong> Restructures and post-June 1 cuts free space. Stars who stay often redo deals to help the team add pieces.',
       },
       {
-        icon: '🏈',
+        icon: 'football',
         html: '<strong>Rebuild vs reload:</strong> Some teams are collecting picks for a QB; others are one piece away from a deep playoff run.',
       },
     ],
@@ -302,7 +297,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '🏈',
       kicker: 'Calendar',
       headline: 'Rookies meet the playbook',
       why: 'May installs set the tone before training camp pads go on in the summer.',
@@ -325,7 +319,6 @@ export const SPORTS: SportContent[] = [
   },
   {
     id: 'cfb',
-    emoji: '🏟',
     name: 'College Football',
     badge: 'NEW',
     headline: 'College Football · May 2026',
@@ -404,15 +397,15 @@ export const SPORTS: SportContent[] = [
     },
     narratives: [
       {
-        icon: '🔄',
+        icon: 'cycle',
         html: '<strong>Portal strategy:</strong> Some teams patch holes fast; others lose depth and scramble in fall camp.',
       },
       {
-        icon: '⭐',
+        icon: 'star',
         html: '<strong>Recruiting:</strong> Early commitments can flip on signing day; NIL and playing time are the levers.',
       },
       {
-        icon: '📺',
+        icon: 'tv',
         html: '<strong>TV inventory:</strong> The SEC and Big Ten drive the biggest national windows; other leagues expand or merge to stay visible.',
       },
     ],
@@ -427,7 +420,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '🏟',
       kicker: 'Timing',
       headline: 'Spring is roster season',
       why: 'Games stop, but staff changes, transfers, and recruiting keep the sport in headlines.',
@@ -450,7 +442,6 @@ export const SPORTS: SportContent[] = [
   },
   {
     id: 'mlb',
-    emoji: '⚾',
     name: 'MLB',
     headline: 'MLB · May 2026',
     metaSuffix: 'Opening stretch',
@@ -505,15 +496,15 @@ export const SPORTS: SportContent[] = [
     },
     narratives: [
       {
-        icon: '💵',
+        icon: 'cash',
         html: '<strong>Payroll tiers:</strong> The Dodgers spend at the top; small markets rely on development and deadline creativity.',
       },
       {
-        icon: '🩹',
+        icon: 'bandage',
         html: '<strong>Injury luck:</strong> Starting pitching depth decides who survives the 162-game grind.',
       },
       {
-        icon: '📅',
+        icon: 'calendar',
         html: '<strong>July deadline:</strong> Contenders buy; rebuilders trade stars for prospects. May standings hint who is which.',
       },
     ],
@@ -528,7 +519,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '⚾',
       kicker: 'Headline',
       headline: 'Two-way Ohtani is the story',
       why: 'He is the rare player who moves both pitching and hitting coverage.',
@@ -551,7 +541,6 @@ export const SPORTS: SportContent[] = [
   },
   {
     id: 'nhl',
-    emoji: '🏒',
     name: 'NHL',
     headline: 'NHL · May 2026',
     metaSuffix: 'Stanley Cup playoffs',
@@ -629,15 +618,15 @@ export const SPORTS: SportContent[] = [
     },
     narratives: [
       {
-        icon: '🥅',
+        icon: 'goal',
         html: '<strong>Goalie health:</strong> Playoff hockey shrinks margins; a hot netminder can steal a series.',
       },
       {
-        icon: '⚡',
+        icon: 'bolt',
         html: '<strong>Special teams:</strong> Power plays decide tight games; coaches scout penalty killers all spring.',
       },
       {
-        icon: '🚌',
+        icon: 'bus',
         html: '<strong>Travel grind:</strong> Cross-country series wear rosters; depth matters more each round.',
       },
     ],
@@ -652,7 +641,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '🏒',
       kicker: 'Playoffs',
       headline: 'Seeding and health matter',
       why: 'The bracket is a grind; special teams and goaltending decide who advances.',
@@ -675,7 +663,6 @@ export const SPORTS: SportContent[] = [
   },
   {
     id: 'soccer',
-    emoji: '⚽',
     name: 'Soccer',
     headline: 'Soccer · May 2026',
     metaSuffix: 'Club season',
@@ -739,15 +726,15 @@ export const SPORTS: SportContent[] = [
     },
     narratives: [
       {
-        icon: '🌍',
+        icon: 'globe',
         html: '<strong>Two-leg ties:</strong> Aggregate score decides who advances; away form still matters tactically even without the old away-goals rule in many ties.',
       },
       {
-        icon: '🏟',
+        icon: 'stadium',
         html: '<strong>Domestic overlap:</strong> Leagues keep playing; managers rotate squads to survive the schedule.',
       },
       {
-        icon: '🔁',
+        icon: 'swap',
         html: '<strong>Summer rebuilds:</strong> Sporting directors line up targets early; one signing can shift a league title race.',
       },
     ],
@@ -762,7 +749,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '⚽',
       kicker: 'Europe',
       headline: 'Knockout rounds trim the field',
       why: 'Each round cuts famous clubs; upsets are common over two legs.',
@@ -785,7 +771,6 @@ export const SPORTS: SportContent[] = [
   },
   {
     id: 'f1',
-    emoji: '🏎',
     name: 'F1',
     headline: 'F1 · 2026 Season',
     metaSuffix: 'Grid tightening',
@@ -841,15 +826,15 @@ export const SPORTS: SportContent[] = [
     },
     narratives: [
       {
-        icon: '🛠',
+        icon: 'wrench',
         html: '<strong>Development race:</strong> Teams ship upgrades all season; B-spec floors and wings can flip midfield order.',
       },
       {
-        icon: '🛑',
+        icon: 'stop',
         html: '<strong>Strategy:</strong> One-stops vs two-stops; safety cars and tire degradation rewrite plans on the fly.',
       },
       {
-        icon: '📐',
+        icon: 'setSquare',
         html: '<strong>Regs:</strong> Budget cap and wind-tunnel limits aim to close the grid; loopholes still spark protests.',
       },
     ],
@@ -864,7 +849,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '🏎',
       kicker: 'Grid',
       headline: 'Driver moves reshuffle expectations',
       why: 'Seat changes at top teams reset how analysts rank the field.',
@@ -887,7 +871,6 @@ export const SPORTS: SportContent[] = [
   },
   {
     id: 'tennis',
-    emoji: '🎾',
     name: 'Tennis',
     headline: 'Tennis · May 2026',
     metaSuffix: 'Tour swing',
@@ -939,15 +922,15 @@ export const SPORTS: SportContent[] = [
     },
     narratives: [
       {
-        icon: '🧱',
+        icon: 'bricks',
         html: '<strong>Clay shift:</strong> Slower courts reward patience; big hitters adjust spin and footwork.',
       },
       {
-        icon: '🎫',
+        icon: 'ticket',
         html: '<strong>Seeding math:</strong> Top 8 seeds avoid each other until round four at Slams; every ranking spot matters.',
       },
       {
-        icon: '⚖️',
+        icon: 'scales',
         html: '<strong>WTA parity:</strong> Multiple winners per major; depth is higher than in the Big Three era on the men\'s side.',
       },
     ],
@@ -962,7 +945,6 @@ export const SPORTS: SportContent[] = [
       ],
     },
     moment: {
-      emoji: '🎾',
       kicker: 'Surface',
       headline: 'Clay rewards patience',
       why: 'Points last longer; fitness and defense matter more than on grass.',
