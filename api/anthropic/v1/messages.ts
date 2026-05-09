@@ -1,13 +1,9 @@
 /**
- * POST /api/anthropic/v1/messages → forwards to api.anthropic.com (same path suffix).
- * Set ANTHROPIC_API_KEY in Vercel → Settings → Environment Variables for Production
- * (and Preview if you test there). Redeploy after adding or changing the key.
+ * POST /api/anthropic/v1/messages → https://api.anthropic.com/v1/messages
  *
- * Default Node.js runtime so `process.env` matches dashboard env (Edge can omit vars in some setups).
+ * Static path (no catch-all) so Vercel always maps this URL to a Node function.
+ * Set ANTHROPIC_API_KEY in the host dashboard (Production + Preview), then redeploy.
  */
-const ALLOW_PREFIX = 'v1/'
-
-/** Vercel Node functions expect Web Standard `export default { fetch }`, not a bare async function. */
 export default {
   async fetch(request: Request): Promise<Response> {
     if (request.method === 'OPTIONS') {
@@ -25,12 +21,6 @@ export default {
       return json(405, { error: 'Method not allowed' })
     }
 
-    const url = new URL(request.url)
-    const pathSuffix = url.pathname.replace(/^\/api\/anthropic\/?/, '')
-    if (!pathSuffix.startsWith(ALLOW_PREFIX)) {
-      return json(403, { error: 'Forbidden path' })
-    }
-
     const key = process.env.ANTHROPIC_API_KEY?.trim()
     if (!key) {
       return json(503, {
@@ -40,7 +30,7 @@ export default {
     }
 
     const body = await request.text()
-    const upstream = await fetch(`https://api.anthropic.com/${pathSuffix}`, {
+    const upstream = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'content-type': request.headers.get('content-type') || 'application/json',
