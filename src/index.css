@@ -293,9 +293,15 @@ button {
   border-radius: 7px;
   color: var(--on-chrome);
   font-size: 17.9px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .drawer-section {
@@ -571,6 +577,14 @@ button {
   color: var(--text);
   font-size: 17.9px;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 .right-panel__close:hover {
@@ -1858,7 +1872,22 @@ button {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: var(--on-chrome);
-  font-size: 17.9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.term-sheet__close .ui-ico {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
 }
 
 .term-sheet__label {
@@ -1924,6 +1953,15 @@ button {
   background: var(--paper2);
   color: var(--text);
   font-size: 17.9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .team-sheet__title {
@@ -2942,10 +2980,6 @@ button {
     font-size: 17.9px;
   }
 
-  .term-sheet__close {
-    font-size: 19px;
-  }
-
   .team-sheet__title {
     font-size: 26.9px;
   }
@@ -3418,6 +3452,11 @@ button {
   line-height: 1;
   cursor: pointer;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .assistant-panel__close:hover {
@@ -3588,10 +3627,6 @@ button {
   width: 64px;
   height: 64px;
 }
-.term-sheet__close .ui-ico {
-  width: 18px;
-  height: 18px;
-}
 
 /* NBA right-rail bracket */
 .nba-bracket {
@@ -3699,8 +3734,8 @@ button {
   height: 20px;
   display: block;
   flex-shrink: 0;
-  /* Optical nudge: stroke caps read slightly high in round buttons */
-  transform: translateY(0.5px);
+  /* Lower vs. cap-height of “Ask”; tweak if font weight/size changes */
+  transform: translateY(2.5px);
 }
 
 /* Claude-style assistant */

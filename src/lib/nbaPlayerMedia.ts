@@ -1,6 +1,7 @@
 /**
- * Headshots: NBA.com CDN (public). IDs are NBA stats person IDs.
- * https://cdn.nba.com/headshots/nba/latest/1040x760/{id}.png
+ * NBA glossary chips: player photos from ESPN’s public CDN (same headshots as espn.com player pages).
+ * IDs are ESPN athlete IDs — see roster JSON `headshot.href` on site.api.espn.com.
+ * Template: https://a.espncdn.com/i/headshots/nba/players/full/{id}.png
  */
 const norm = (s: string) =>
   s
@@ -9,14 +10,19 @@ const norm = (s: string) =>
     .toLowerCase()
     .trim()
 
-const NBA_HEADSHOT_BY_NAME: Record<string, string> = {
-  'luka doncic': '1629029',
-  'austin reaves': '1630559',
-  'lebron james': '2544',
-  'victor wembanyama': '1641705',
-  'nikola jokic': '203999',
-  'shai gilgeous-alexander': '1628983',
-  'cade cunningham': '1630595',
+/** Normalized player name → ESPN athlete id */
+const NBA_ESPN_HEADSHOT_ID_BY_NAME: Record<string, string> = {
+  'luka doncic': '3945274',
+  'austin reaves': '4066457',
+  'lebron james': '1966',
+  'victor wembanyama': '5104157',
+  'nikola jokic': '3112335',
+  'shai gilgeous-alexander': '4278073',
+  'cade cunningham': '4432166',
+}
+
+function espnNbaPlayerHeadshotUrl(athleteId: string): string {
+  return `https://a.espncdn.com/i/headshots/nba/players/full/${athleteId}.png`
 }
 
 /** ESPN team logo paths (3-letter slug) — for glossary terms that are teams. */
@@ -36,9 +42,9 @@ export type NbaTermVisual = { kind: 'player'; url: string } | { kind: 'team'; ur
 
 export function nbaTermVisualForWord(word: string): NbaTermVisual | undefined {
   const n = norm(word)
-  const tid = NBA_HEADSHOT_BY_NAME[n]
-  if (tid) {
-    return { kind: 'player', url: `https://cdn.nba.com/headshots/nba/latest/1040x190/${tid}.png` }
+  const espnId = NBA_ESPN_HEADSHOT_ID_BY_NAME[n]
+  if (espnId) {
+    return { kind: 'player', url: espnNbaPlayerHeadshotUrl(espnId) }
   }
   const slug = NBA_TEAM_LOGO_SLUG[n]
   if (slug) {
