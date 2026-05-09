@@ -34,7 +34,7 @@ export async function fetchClaudeReply(options: { system: string; messages: Msg[
     },
     body: JSON.stringify({
       model,
-      max_tokens: 1200,
+      max_tokens: 650,
       system: options.system,
       messages,
     }),

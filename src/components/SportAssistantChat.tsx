@@ -2,6 +2,7 @@ import { type FormEvent, useCallback, useEffect, useRef, useState } from 'react'
 import type { SportContent, SportId } from '../types'
 import { fetchClaudeReply } from '../lib/anthropicChat'
 import { getSportAssistantReply } from '../lib/sportAssistantReply'
+import { AssistantFormattedText } from './AssistantFormattedText'
 import { IconOrb, IconSend } from './ui/UiIcons'
 
 /** ms between each revealed character (snappy, chat-app feel) */
@@ -21,15 +22,14 @@ function StreamText({
   const [n, setN] = useState(() => (active ? 0 : text.length))
   const onCompleteRef = useRef(onComplete)
   const onProgressRef = useRef(onProgress)
-  onCompleteRef.current = onComplete
-  onProgressRef.current = onProgress
 
   useEffect(() => {
-    if (!active) {
-      setN(text.length)
-      return
-    }
-    setN(0)
+    onCompleteRef.current = onComplete
+    onProgressRef.current = onProgress
+  }, [onComplete, onProgress])
+
+  useEffect(() => {
+    if (!active) return
     if (text.length === 0) {
       onCompleteRef.current?.()
       return
@@ -48,7 +48,8 @@ function StreamText({
     return () => window.clearInterval(id)
   }, [text, active])
 
-  return <>{text.slice(0, n)}</>
+  const shown = active ? Math.min(n, text.length) : text.length
+  return <AssistantFormattedText text={text.slice(0, shown)} />
 }
 
 function emptyAssistantPrompt(sportName: string, sportId: SportId): string {
@@ -73,32 +74,41 @@ type Props = {
   sportId: SportId
   sport: SportContent
   variant: 'mobile-landing' | 'floating'
+  /** Desktop panel: flex to available height and let the thread grow */
+  embeddedInDesktopPanel?: boolean
   formId?: string
 }
 
 const assistantSystem = (sport: SportContent) =>
   [
-    'You are the Sports Talk in-app assistant. Your job is to answer the user’s sports questions in a way that feels clear, human, and easy to skim.',
+    'You are the Sports Talk in-app assistant. Answers appear in a small chat panel—readers want **scannable structure**, not essay paragraphs.',
     '',
-    `Context: the user is browsing content about **${sport.name}**. Keep examples and explanations anchored to that sport unless they clearly switch topic.`,
+    `Sport context: **${sport.name}**. Stay anchored there unless the user clearly changes topic.`,
     '',
-    'How to answer:',
-    '- Default to **short, plain-language** replies: about 3–6 sentences, or two tight paragraphs at most. If they ask for more depth (“explain like I’m new”, “go deeper”), you may go longer.',
-    '- Lead with **the direct answer** or the one thing they need to know. Avoid filler openers like “Great question” or “Absolutely”.',
-    '- Use **simple structure**: short sentences, optional bullet list only when it genuinely helps (rules, steps, or comparisons).',
-    '- Include **concrete explanations** (how a rule works, what a term means, why something matters) rather than hype or vague summaries.',
+    '## Output format (required unless they only need a one-line yes/no)',
+    '- Use **Markdown**: section titles on their own line as `## Section name` (2–4 sections for a normal answer). For a small sub-heading inside a section, use `###` sparingly.',
+    '- Under each `##` section, use **2–4 short bullet lines** (`- `). Each bullet = one idea, one line, plain language. Avoid bullets longer than ~120 characters—split into two bullets instead.',
+    '- **No long prose blocks.** Do not write more than two non-bullet sentences in a row. If you are tempted to write a paragraph, break it into bullets under a new `##` section.',
+    '- Default length: about **90–130 words total**. If they explicitly ask to go deeper (“ELI5”, “explain every step”, “longer”), you may stretch to ~220 words but **keep the same section + bullet pattern**.',
+    '- Put the **most important takeaway** in the first section (title like `## Quick answer` or `## Bottom line`) with 2 bullets max.',
     '',
-    'Accuracy and limits:',
-    '- **Never invent** scores, stats, dates, injuries, trades, starting lineups, or broadcast details. If something is missing from the conversation or you are not sure, say so plainly.',
-    '- You **do not** have live games or real-time data. If they ask what is happening “right now” and they have not pasted any details, explain the concept in general terms and note you are not reporting a live result.',
-    '- If the question is ambiguous, **ask one short clarifying question** or state your assumption in one line.',
+    '## Accuracy',
+    '- Never invent scores, stats, dates, injuries, trades, or lineups. If unknown or not in the thread, say so in one bullet.',
+    '- You do not have live games. If they ask for “right now” without pasting details, explain generally and say it is not a live report.',
+    '- Ambiguous question → one short clarifying question in a `###` or final `- ` bullet, or state your assumption in one line.',
     '',
-    'Style:',
-    '- No emojis, no hashtags, no “as an AI”.',
-    '- Tone: friendly, direct, confident but not preachy.',
+    '## Style',
+    '- No emojis, hashtags, or “as an AI”. No filler openers—start with structured content.',
+    '- Friendly, direct, confident. Use **bold** sparingly inside bullets for key terms only.',
   ].join('\n')
 
-export function SportAssistantChat({ sportId, sport, variant, formId = 'sport-assistant-form' }: Props) {
+export function SportAssistantChat({
+  sportId,
+  sport,
+  variant,
+  embeddedInDesktopPanel = false,
+  formId = 'sport-assistant-form',
+}: Props) {
   const [messages, setMessages] = useState<Msg[]>([])
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
@@ -156,9 +166,13 @@ export function SportAssistantChat({ sportId, sport, variant, formId = 'sport-as
   }
 
   const base = variant === 'floating' ? 'asst-float' : 'asst-mobile'
+  const rootClass =
+    embeddedInDesktopPanel && variant === 'floating'
+      ? `${base} ${base}--claude ${base}--in-panel`
+      : `${base} ${base}--claude`
 
   return (
-    <div className={`${base} ${base}--claude`}>
+    <div className={rootClass}>
       <div
         className={`${base}__thread`}
         ref={listRef}
@@ -184,6 +198,7 @@ export function SportAssistantChat({ sportId, sport, variant, formId = 'sport-as
               <div className={`${base}__bubble`}>
                 {msg.role === 'assistant' ? (
                   <StreamText
+                    key={`${i}-${i === streamRevealIdx}`}
                     text={msg.text}
                     active={i === streamRevealIdx}
                     onComplete={() => setStreamRevealIdx(null)}
